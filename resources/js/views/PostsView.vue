@@ -1,15 +1,4 @@
 <style scoped>
-    .pCustom {
-        font-size: 14px;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-        line-height: 23px;
-        color: #fafafa;
-        text-align: left !important;
-        margin-top: 2%;
-        margin-bottom: 2%;
-    }
-
     .h1Custom {
         color: #fafafa;
         font-size: 50px;
@@ -32,21 +21,6 @@
         font-weight: 400;
     }
 
-    .pCustomCategory {
-        color: #4c4c4c;
-        font-size: 15px;
-        font-weight: 500;
-        letter-spacing: 0.5px;
-        line-height: 21.4286px;
-    }
-
-    .spanCustom {
-        color: #9c9c9c;
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 23px;
-    }
-
     .h5Custom {
         color:#4c4c4c;
         font-size:14px;
@@ -63,7 +37,7 @@
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
-        margin-bottom: 20px;
+        margin: 10px;
     }
 </style>
 
@@ -83,12 +57,12 @@
                     <v-container class="pa-1">
                         <v-item-group v-model="selected" multiple>
                             <v-row>
-                                <v-col v-for="(post) in selected" :key="post.id" cols="12" lg="6" md="6" sm="12">
+                                <v-col cols="12" v-for="(post) in selected" :key="post.id" lg="6" md="6" sm="12">
                                     <v-card @click="getPostById(post.id)">
                                         <v-hover v-slot="{ hover }">
                                             <v-card-title class="titleCustom" v-text="post['title_' + this.$i18n.locale]" :class="{ 'colorCustom': hover }"></v-card-title>
                                         </v-hover>
-                                        <v-card-text class="line-clamp-2" v-html="post['text_' + this.$i18n.locale]"></v-card-text>
+                                        <div class="line-clamp-2" v-html="eliminarEtiquetas(post['text_' + this.$i18n.locale])"></div>
                                     </v-card>
                                 </v-col>
                             </v-row>
@@ -98,9 +72,10 @@
                 <v-col cols="12" lg="3" md="3" sm="12">
                     <v-text-field
                         outlined
+                        variant="solo"
                         :label="searchLabel"
-                        append-icon="mdi mdi-magnify"
                         v-model="searchText"
+                        append-inner-icon="mdi-magnify"
                     ></v-text-field>
 
                     <v-list>
@@ -119,7 +94,7 @@
                             {{ $t("Ultimos post")}}
                         </v-list-subheader>
 
-                        <v-list-item v-for="(post, i) in posts" :key="i" :value="post" active-color="#F3B007" rounded="xl">
+                        <v-list-item v-for="(post, i) in posts" :key="i" :value="post" active-color="#F3B007" rounded="xl" @click="getPostById(post.id)">
                             <v-divider></v-divider>
                             <template v-slot:prepend>
                                 <font-awesome-icon icon="fa-solid fa-calendar-days" style="color: #F3B007"/>
@@ -128,7 +103,7 @@
                             <h5 class="h5Custom" style="padding-left: 2%;">
                                 {{ post['title_' + this.$i18n.locale] }}
                             </h5>
-                            <v-list-item-subtitle style="padding-left: 2%;" v-html="post['text_' + this.$i18n.locale]">
+                            <v-list-item-subtitle style="padding-left: 2%;" v-html="eliminarEtiquetas(post['text_' + this.$i18n.locale])">
                             </v-list-item-subtitle>
                         </v-list-item>
                     </v-list>
@@ -229,6 +204,10 @@ import axios from 'axios';
                 .catch((error) => {
                     console.log(error);
                 });
+            },
+
+            eliminarEtiquetas(html: string) {
+                return html.replace(/<[^>]*>/g, ' ');
             }
         },
 

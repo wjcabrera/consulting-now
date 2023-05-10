@@ -75,9 +75,14 @@
 </style>
 
 <template>
-    <v-app>
-        <v-img style="align-items: center;"  src="/images/products/products.png">
-            <v-container style="width: fit-content; display: inline-block; text-align: left; padding-left: 8%;">
+    <v-app style="padding-top: 64px;">
+        <div
+            :style="{
+                backgroundImage: `url('/images/products/products.png')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center'
+            }">
+            <v-container style="width: fit-content; display: inline-block; text-align: left; padding-left: 8%; padding-top: 6%; padding-bottom: 6%;">
                 <v-row>
                     <v-col cols="12" md="8" sm="12" lg="8">
                         <h1 class="h1Custom">
@@ -95,27 +100,44 @@
                     </v-col>
                 </v-row>
             </v-container>
-        </v-img>
+        </div>
         <v-container>
-            <v-tabs color="#F3B007">
-                <v-tab v-for="item in items" :key="item.category" height="100%" class="textItems" @click="filter(item.category)">
-                    {{ $t(item.title) }}
-                </v-tab>
-                <v-tab height="100%" @click="order()">
+            <v-container class="d-flex justify-center align-center">
+                <v-tabs color="#F3B007" class="d-none d-sm-flex">
+                    <v-tab v-for="item in items" :key="item.category" height="100%" class="textItems" @click="filter(item.category)">
+                        {{ $t(item.title) }}
+                    </v-tab>
+                    <v-tab height="100%" @click="order()">
+                        <font-awesome-icon :icon="iconActive ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'"/>
+                    </v-tab>
+                </v-tabs>
+                <v-select class="d-sm-none"
+                    label="Select"
+                    :items="items"
+                    item-text="title"
+                    item-value="category"
+                    v-model="selectedItem"
+                ></v-select>
+                <v-btn class="d-sm-none" @click="order()" style="margin-left: 5%; height: 50px; width: 20px; margin-top: -6%;" variant="tonal">
                     <font-awesome-icon :icon="iconActive ? 'fa-solid fa-arrow-up' : 'fa-solid fa-arrow-down'"/>
-                </v-tab>
-            </v-tabs>
+                </v-btn>
+            </v-container>
             <v-container>
                 <v-row>
                     <transition-group name="cell" tag="div" style="display: contents;">
-                        <v-col v-for="product in selected" :key="product.src" cols="12" sm="12" md="6" lg="3" style="height: fit-content;">
-                            <v-hover v-slot="{ hover }">
-                                <v-card height="150" style="overflow: hidden;" @click="redirect(product.link)">
+                        <v-col cols="12" v-for="product in selected" :key="product.src" sm="12" md="6" lg="3" style="height: fit-content;">
+                            <v-hover v-slot="{ isHovering, props }">
+                                <v-card height="150"
+                                style="overflow: hidden;"
+                                v-bind="props"
+                                @click="redirect(product.link)">
                                     <v-img
                                         :src="product.src"
                                         height="150"
                                         style="overflow: hidden;"
-                                        :style="{ transform: hover ? 'scale(1.2)' : 'scale(1)', transition: 'all 0.2s ease-in-out' }"
+                                        :style="{ transform: isHovering ? 'scale(1.2)' : 'scale(1)', transition: 'all 0.2s ease-in-out' }"
+                                        :class="{ 'scale-120': isHovering }"
+                                        transition="scale-transition"
                                     ></v-img>
                                 </v-card>
                             </v-hover>
@@ -133,6 +155,10 @@
 <script lang="ts">
     export default {
         data: () => ({
+            selectedItem: {
+                title: 'All',
+                category: 0
+            },
             iconActive: true,
             items: [
                 {
@@ -260,6 +286,12 @@
                     return 0;
                 }
             });
+        },
+
+        watch: {
+            selectedItem() {
+                this.filter(this.selectedItem);
+            }
         }
     }
 </script>

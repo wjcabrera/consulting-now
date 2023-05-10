@@ -1,3 +1,11 @@
+<style>
+#editor {
+    max-height: 300px;
+    max-width: 900px;
+    overflow: scroll;
+}
+</style>
+
 <template>
     <v-dialog transition="dialog-top-transition" width="auto" v-model="dialog">
         <v-card class="mx-auto" min-width="500">
@@ -25,7 +33,7 @@
                     <v-window-item :value="2">
                         <v-card-text>
                             <v-text-field label="Titulo" v-model="post.title_es" placeholder="Titulo"></v-text-field>
-                            <vue-editor v-model="post.text_es" :editorToolbar="editorOptions"></vue-editor>
+                            <vue-editor id="editor" v-model="post.text_es" :editorToolbar="editorOptions"></vue-editor>
                             <span class="text-caption text-grey-darken-1">
                                 Escribe el texto del post
                             </span>
@@ -35,7 +43,7 @@
                     <v-window-item :value="3">
                         <v-card-text>
                             <v-text-field label="Title" v-model="post.title_en" placeholder="Title"></v-text-field>
-                            <vue-editor v-model="post.text_en"></vue-editor>
+                            <vue-editor id="editor" v-model="post.text_en" :editorToolbar="editorOptions"></vue-editor>
                             <span class="text-caption text-grey-darken-1">
                                 write the post text
                             </span>
@@ -45,7 +53,7 @@
                     <v-window-item :value="4">
                         <v-card-text>
                             <v-text-field label="Qualificação" v-model="post.title_pt" placeholder="Qualificação"></v-text-field>
-                            <vue-editor v-model="post.text_pt"></vue-editor>
+                            <vue-editor id="editor" v-model="post.text_pt" :editorToolbar="editorOptions"></vue-editor>
                             <span class="text-caption text-grey-darken-1">
                                 Escreva o texto do post
                             </span>
@@ -121,7 +129,7 @@
                 text_es: '',
                 text_en: '',
                 text_pt: '',
-                file_path: ''
+                file_path: []
             },
             editorOptions: [
                 ['bold', 'italic', 'underline', 'strike'],
@@ -189,6 +197,7 @@
                 })
                 .then(response => {
                     this.post = response.data.post;
+                    this.post.file_path = [];
                 })
                 .catch(function (error) {
                 });

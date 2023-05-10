@@ -118,4 +118,12 @@ const router = createRouter({
   ]
 })
 
+// Agregar gancho de navegación global
+router.beforeEach((to, from, next) => {
+  // Desplazarse a la parte superior de la página
+  window.scrollTo(0, 0)
+  // Continuar navegación
+  next()
+})
+
 export default router;

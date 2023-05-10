@@ -21,45 +21,41 @@
 </style>
 
 <template>
-    <v-window v-model="step" show-arrows class="fullscreen" style="padding-top: 70px;">
-        <template v-slot:prev="{ props }">
-            <v-btn color="#f3b007" @click="props.onClick" icon>
-                <font-awesome-icon icon="fa-solid fa-backward-step" />
-            </v-btn>
-        </template>
-        <template v-slot:next="{ props }">
-            <v-btn color="#f3b007" @click="props.onClick" icon>
-                <font-awesome-icon icon="fa-solid fa-forward-step" />
-            </v-btn>
-        </template>
-        <v-window-item class="fullscreen90" :value="1"
-            :style="{
-                backgroundImage: `url('/images/products/productos-ADN2.jpg')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }">
-            <v-container class="d-flex justify-center align-center fullscreen90">
-                <v-row class="d-flex" style="margin-top: -5%;">
-                    <v-col class="align-self-center" xl="4" lg="4" sm="12">
-                        <h1 class="h1Custom">
-                            Cultura Organizacional y el ADN del Liderazgo
-                        </h1>
-                        <h2 class="h2Custom" style="color: #fafafa;">
-                            ¿Ya ha reconocido cuál es el ADN de su organización?
-                        </h2>
-                    </v-col>
-                    <v-col class="align-self-center" xl="8" lg="8" sm="12" style="border: 5px solid #F3B007; height: 100%;">
-                        <p class="pCustom" style="color: #fafafa; margin: 5%; text-align: center;">
-                            ¿Sabe qué motiva a las personas a dar lo mejor de sí mismos y comprometerse en la construcción de una identidad? ¿Qué causa que los líderes pierdan la confianza en sus equipos? En la identificación y comprensión del ADN del liderazgo intervienen dimensiones y comportamientos, con el fin de medir las características esenciales de la cultura organizacional, que devela el código genético de interacción para moldear la calidad de la cultura y acceder al siguiente nivel de grandeza.
-                        </p>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-window-item>
-        <v-window-item :value="2">
-            <v-container class="d-flex justify-center align-center fullscreen90">
-                <v-row>
-                    <v-col xl="6" lg="6" sm="12">
+    <div v-intersect="onIntersect" style="margin-top: 64px;">
+        <div class="fullscreen">
+            <transition name="slide-up">
+                <div class="fullscreen" v-show="window1"
+                :style="{
+                    backgroundImage: `url('/images/products/productos-ADN2.jpg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }">
+                    <v-container class="d-flex justify-center align-center fullscreen">
+                        <v-row class="d-flex" style="margin-top: -5%;">
+                            <v-col cols="12" class="align-self-center" xl="4" lg="4" sm="12">
+                                <h1 class="h1Custom">
+                                    Cultura Organizacional y el ADN del Liderazgo
+                                </h1>
+                                <h2 class="h2Custom" style="color: #fafafa;">
+                                    ¿Ya ha reconocido cuál es el ADN de su organización?
+                                </h2>
+                            </v-col>
+                            <v-col cols="12" class="align-self-center" xl="8" lg="8" sm="12" style="border: 5px solid #F3B007; height: 100%;">
+                                <p class="pCustom" style="color: #fafafa; margin: 5%; text-align: center;">
+                                    ¿Sabe qué motiva a las personas a dar lo mejor de sí mismos y comprometerse en la construcción de una identidad? ¿Qué causa que los líderes pierdan la confianza en sus equipos? En la identificación y comprensión del ADN del liderazgo intervienen dimensiones y comportamientos, con el fin de medir las características esenciales de la cultura organizacional, que devela el código genético de interacción para moldear la calidad de la cultura y acceder al siguiente nivel de grandeza.
+                                </p>
+                            </v-col>
+                        </v-row>
+                    </v-container>
+                </div>
+            </transition>
+        </div>
+    </div>
+    <v-container class="d-flex justify-center align-center fullscreen">
+        <v-container v-intersect="onIntersectWindow2">
+            <transition name="slide-up">
+                <v-row v-show="window2">
+                    <v-col cols="12" xl="6" lg="6" sm="12">
                         <h2 class="h2Custom" style="color: #4c4c4c;">
                             Cultura Organizacional y el ADN del Liderazgo
                         </h2>
@@ -72,33 +68,48 @@
                             ¿Ya ha reconocido cuál es el ADN de su organización? ¿Sabe qué motiva a las personas a dar lo mejor de sí mismos y comprometerse en la construcción de una identidad? ¿Qué causa que los líderes pierdan la confianza en sus equipos?
                         </p>
                     </v-col>
-                    <v-col xl="6" lg="6" sm="12" class="d-flex justify-center align-center">
+                    <v-col cols="12" xl="6" lg="6" sm="12" class="d-flex justify-center align-center">
                         <p class="pCustom" style="color: #4c4c4c;">
                             Cuando pensamos en las dimensiones como genes, nos abrimos a una nueva forma de pensar; una que nos inspira a descubrir el ADN de la cultura.
                         </p>
                     </v-col>
-                    <v-container style="display: flex; justify-content: end;">
+                    <v-container style="display: flex; justify-content: center;">
                         <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
                             Volver
                         </v-btn>
                     </v-container>
                 </v-row>
-            </v-container>
-        </v-window-item>
-    </v-window>
+            </transition>
+        </v-container>
+    </v-container>
 </template>
 
 <script lang="ts">
     export default {
         data() {
             return {
-                step: 1,
+                window1: false,
+                window2: false
             }
         },
         methods: {
             redirect() {
                 this.$router.push('/products/');
+            },
+
+            onIntersect (isIntersecting: boolean) {
+                if (isIntersecting && !this.window1)
+                    this.window1 = isIntersecting;
+            },
+
+            onIntersectWindow2 (isIntersecting: boolean) {
+                if (isIntersecting && !this.window2)
+                    this.window2 = isIntersecting;
             }
         },
+
+        mounted() {
+            window.scrollTo(0, 0);
+        }
     }
 </script>

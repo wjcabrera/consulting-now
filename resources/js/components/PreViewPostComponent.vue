@@ -16,34 +16,52 @@
         column-count: 2;
         column-gap: 20px;
     }
+
+    .fullscreen {
+        width: 100vw;
+        min-height: calc(100vh - 64px); /* Ajusta el valor de 64px a tu barra superior de navegación */
+        height: 100%;
+    }
+
 </style>
 
 <template>
-    <div style="background-color: #F7F7F7; margin-top: 64px; height: 8%; display: flex; flex-direction: column; align-items: start; padding-left: 10%; justify-content: center;">
-        <h1 class="h1Custom"> {{ post['title_' + this.$i18n.locale] }} </h1>
-        <hr aria-orientation="horizontal" class="dividerCustom" style="width: 20%">
-    </div>
-    <!-- <v-container class="justify-center align-center"> -->
-        <v-container style="height: 30%;">
-            <v-img :src="getImageUrl()"></v-img>
-        </v-container>
-        <v-container v-html="post['text_' + this.$i18n.locale]" :class="small ? '' : 'twoColumns'"></v-container>
-        <v-container style="display: flex; justify-content: center;">
-            <v-btn rounded color="#F3B007" style="color: #fafafa" @click="redirect()">
-                Volver
+    <v-dialog transition="dialog-top-transition" v-model="dialog">
+        <v-card-actions style="background-color: cornflowerblue;">
+            <v-spacer></v-spacer>
+            <h1 style="color: #F7F7F7;">
+                PREVIEW
+            </h1>
+            <v-spacer></v-spacer>
+            <v-btn style="color: #F7F7F7;" variant="text" @click="hiddenpreview">
+                <font-awesome-icon icon="fa-solid fa-xmark" style="color: #ffffff;" />
             </v-btn>
-        </v-container>
-    <!-- </v-container> -->
+        </v-card-actions>
+        <v-card>
+            <div style="background-color: #F7F7F7; display: flex; align-items: center; padding-left: 10%;">
+                <h1 class="h1Custom" style="margin-top: 40px; margin-bottom: 40px;">
+                    {{ post['title_' + this.$i18n.locale] }}
+                    <hr aria-orientation="horizontal" class="dividerCustom">
+                </h1>
+            </div>
+            <v-container class="justify-center align-center">
+                <v-container style="height: 600px;">
+                    <v-img :src="getImageUrl()"></v-img>
+                </v-container>
+                <v-container v-html="post['text_' + this.$i18n.locale]" :class="small ? '' : 'twoColumns'"></v-container>
+            </v-container>
+        </v-card>
+    </v-dialog>
 </template>
 
-<script>
+<script lang="ts">
 import axios from 'axios';
 
     export default {
         data() {
             return {
+                dialog: true,
                 small: false,
-                id: null,
                 post: {
                     id: -1,
                     category: '',
@@ -58,6 +76,13 @@ import axios from 'axios';
                 },
                 textColumn1: '',
                 textColumn2: ''
+            }
+        },
+
+        props: {
+            id: {
+                type: Number,
+                required: true
             }
         },
 
@@ -84,10 +109,13 @@ import axios from 'axios';
             getImageUrl() {
                 return this.post.file_path.replace('public', '/storage');
             },
+
+            hiddenpreview() {
+                this.$emit('hiddenpreview');
+            },
         },
 
         async created() {
-            this.id = this.$route.params.id;
             await this.getPostById();
             this.small = window.innerWidth < 600 || this.post['text_' + this.$i18n.locale].length < 1000;
         },

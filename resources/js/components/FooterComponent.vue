@@ -47,7 +47,7 @@ line-height: 35px;
             <v-container class="absolute">
                 <v-container>
                     <v-row>
-                        <v-col xl="4" lg="4" sm="12">
+                        <v-col cols="12" xl="4" lg="4" sm="12">
                             <h4>
                                 America del norte
                             </h4>
@@ -62,7 +62,7 @@ line-height: 35px;
                             </b>
                             <a href="mailto:info.mexico@consultingnow.solutions"> info.mexico@consultingnow.solutions</a>
                         </v-col>
-                        <v-col xl="4" lg="4" sm="12">
+                        <v-col cols="12" xl="4" lg="4" sm="12">
                             <h4>America del sur</h4>
                             <br>
                             <b>
@@ -76,7 +76,7 @@ line-height: 35px;
                             <b>Brasil</b>
                             <a href="mailto:info.brasil@consultingnow.solutions"> info.brasil@consultingnow.solutions</a>
                         </v-col>
-                        <v-col xl="4" lg="4" sm="12">
+                        <v-col cols="12" xl="4" lg="4" sm="12">
                             <h4>Europa</h4>
                             <br>
                             <b>España</b>

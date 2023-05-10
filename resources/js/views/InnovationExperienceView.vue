@@ -22,43 +22,39 @@
 </style>
 
 <template>
-    <v-window v-model="step" show-arrows class="fullscreen" style="padding-top: 70px;">
-        <template v-slot:prev="{ props }">
-            <v-btn color="#f3b007" @click="props.onClick" icon>
-                <font-awesome-icon icon="fa-solid fa-backward-step" />
-            </v-btn>
-        </template>
-        <template v-slot:next="{ props }">
-            <v-btn color="#f3b007" @click="props.onClick" icon>
-                <font-awesome-icon icon="fa-solid fa-forward-step" />
-            </v-btn>
-        </template>
-        <v-window-item class="fullscreen90" :value="1"
-            :style="{
-                backgroundImage: `url('/images/products/productos-experience-innovation2.jpg')`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-            }">
-            <v-container class="d-flex justify-center align-center fullscreen90">
-                <v-row class="d-flex" style="margin-top: 8%;">
-                    <v-col class="align-self-center" xl="8" lg="8" sm="12">
-                    </v-col>
-                    <v-col class="align-self-center" xl="4" lg="4" sm="12" style="margin-top: -10%;">
-                        <h1 class="h1Custom">
-                            Experiencia de Innovación
-                        </h1>
-                        <br>
-                        <p class="pCustom" style="color: #fafafa;">
-                            Esta Experiencia de Innovación provee técnicas que ejercitan un pensar diferente trabajando sobre soluciones creativas, para generar resultados de alto impacto.
-                        </p>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-window-item>
-        <v-window-item :value="2">
-            <v-container class="d-flex justify-center align-center fullscreen90">
-                <v-row>
-                    <v-col xl="6" lg="6" sm="12">
+    <div v-intersect="onIntersect" style="margin-top: 64px;">
+        <div class="fullscreen">
+            <transition name="slide-up">
+                <div class="fullscreen" v-show="window1"
+                :style="{
+                    backgroundImage: `url('/images/products/productos-experience-innovation2.jpg')`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                }">
+                    <v-container class="d-flex justify-center align-center fullscreen">
+                        <v-row class="d-flex" style="margin-top: 8%;">
+                            <v-col cols="12" class="align-self-center" xl="8" lg="8" sm="12">
+                            </v-col>
+                            <v-col cols="12" class="align-self-center" xl="4" lg="4" sm="12" style="margin-top: -10%;">
+                                <h1 class="h1Custom">
+                                    Experiencia de Innovación
+                                </h1>
+                                <br>
+                                <p class="pCustom" style="color: #fafafa;">
+                                    Esta Experiencia de Innovación provee técnicas que ejercitan un pensar diferente trabajando sobre soluciones creativas, para generar resultados de alto impacto.
+                                </p>
+                            </v-col>
+                        </v-row>
+                    </v-container>
+                </div>
+            </transition>
+        </div>
+    </div>
+    <v-container class="d-flex justify-center align-center fullscreen">
+        <v-container v-intersect="onIntersectWindow2">
+            <transition name="slide-up">
+                <v-row v-show="window2">
+                    <v-col cols="12" xl="6" lg="6" sm="12">
                         <h3 class="h3Custom">
                             Un programa diseñado para que las personas puedan ser auténticas protagonistas de su futuro.
                         </h3>
@@ -70,7 +66,7 @@
                             Este tipo de experiencia pone foco en las personas y se vale de los recursos de diseño para integrar las necesidades y los requerimientos para el éxito del negocio. Se nutre de la intuición para visualizar patrones e integra ideas emocionalmente funcionales.
                         </p>
                     </v-col>
-                    <v-col xl="6" lg="6" sm="12">
+                    <v-col cols="12" xl="6" lg="6" sm="12">
                         <p class="pCustom" style="color: #4c4c4c;">
                             Se trabaja en equipo para hacer frente a un proyecto de innovación realista. Al avanzar a través del proceso de diseño, la simulación ofrece lo esencial para un desafío innovador.
                         </p>
@@ -86,40 +82,42 @@
                         </v-container>
                     </v-col>
                 </v-row>
-            </v-container>
-        </v-window-item>
-        <v-window-item :value="3">
-            <v-container class="d-flex justify-center align-center fullscreen90">
-                <v-row>
-                    <v-col xl="10" lg="10" sm="12" class="d-flex justify-center align-center">
+            </transition>
+        </v-container>
+    </v-container>
+    <v-container class="d-flex justify-center align-center fullscreen">
+        <v-container v-intersect="onIntersectWindow3">
+            <transition name="slide-up">
+                <v-container v-show="window3">
+                    <v-container class="d-flex justify-center align-center">
                         <iframe
                             width="80%"
-                            height="300%"
+                            height="100%"
                             src="https://player.vimeo.com/video/521946126?h=ff28db48c7"
                             title="YouTube video player"
                             frameborder="0"
-                            style="text-align: center;"
+                            style="text-align: center; min-height: calc(100vh - 200px); height: 100%;"
                             allowfullscreen>
                         </iframe>
-                    </v-col>
-                    <v-col  xl="2" lg="2" sm="12">
-                        <v-container class="d-flex justify-center align-center">
-                            <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
-                                Volver
-                            </v-btn>
-                        </v-container>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </v-window-item>
-    </v-window>
+                    </v-container>
+                    <v-container class="d-flex justify-center">
+                        <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
+                            Volver
+                        </v-btn>
+                    </v-container>
+                </v-container>
+            </transition>
+        </v-container>
+    </v-container>
 </template>
 
 <script lang="ts">
     export default {
         data() {
             return {
-                step: 1,
+                window1: false,
+                window2: false,
+                window3: false
             }
         },
         methods: {
@@ -128,7 +126,26 @@
             },
             abrirPDF() {
                 window.open('/pdf/innovationExperience.pdf', '_blank');
+            },
+
+            onIntersect (isIntersecting: boolean) {
+                if (isIntersecting && !this.window1)
+                    this.window1 = isIntersecting;
+            },
+
+            onIntersectWindow2 (isIntersecting: boolean) {
+                if (isIntersecting && !this.window2)
+                    this.window2 = isIntersecting;
+            },
+
+            onIntersectWindow3 (isIntersecting: boolean) {
+                if (isIntersecting && !this.window3)
+                    this.window3 = isIntersecting;
             }
         },
+
+        mounted() {
+            window.scrollTo(0, 0);
+        }
     }
 </script>

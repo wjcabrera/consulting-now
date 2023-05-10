@@ -19,7 +19,7 @@
   }
 
   .parallax-section {
-    height: 100vh;
+    /* height: 100vh; */
     overflow-x: hidden;
     overflow-y: auto;
     perspective: 1px;
@@ -48,24 +48,29 @@
 </style>
 
 <template>
-  <v-app style="padding-top: 30px;">
-    <v-img src="/images/us/photoPageUs.jpg" style="position: relative;" v-intersect="onIntersectImg">
-      <transition name="slide-left" class="slide-left">
+  <v-app style="padding-top: 64px;">
+    <div style="width: 100vw;"
+      :style="{ backgroundImage: `url('/images/us/photoPageUs.jpg')`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center' }">
+      <transition name="slide-right" appear>
         <v-container style="display: flex; align-items: center; justify-content: space-between;">
           <h1 class="h1Custom" style="padding-bottom: 7%;">Gestión estratégica del Talento</h1>
           <v-img max-width="25%" src="/images/logo-consulting-now.png" style="flex: 1; margin-top: 9%; margin-right: 1%;"></v-img>
         </v-container>
       </transition>
-    </v-img>
-    <v-container style="background-color: #FFFFFF; display: flex; width: 100vw; height: 100vh;" class="justify-center align-center">
+    </div>
+    <v-container style="background-color: #FFFFFF; display: flex; width: 100vw;" class="justify-center align-center fullscreen">
       <v-row>
-        <v-col xl="4" lg="4" sm="12" v-intersect="onIntersect">
-          <transition name="slide-up" class="slide-up">
-            <v-img style="border-radius: 5px; margin-top: 30px;" src="/images/us/photoPageUs3.jpg" v-show="showANewApproach"></v-img>
+        <v-col cols="12" xl="4" lg="4" sm="12" v-intersect="onIntersect">
+          <transition name="slide-up">
+            <v-container v-show="showANewApproach">
+              <v-img style="border-radius: 5px; margin-top: 30px;" src="/images/us/photoPageUs3.jpg"></v-img>
+            </v-container>
           </transition>
         </v-col>
-        <v-col xl="8" lg="8" sm="12">
-        <transition name="slide-down" class="slide-down">
+        <v-col cols="12" xl="8" lg="8" sm="12">
+        <transition name="slide-down">
           <v-container v-show="showANewApproach">
             <h2 class="titleCustom" style="color: #4c4c4c;">
               {{ $t('A new approach for a new world') }}
@@ -89,7 +94,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <section class="parallax-section" :style="{ backgroundImage: `url(${'/images/us/photoPageUs2.jpg'})` }">
+    <section class="parallax-section fullscreen" :style="{ backgroundImage: `url(${'/images/us/photoPageUs2.jpg'})` }">
       <v-container v-intersect="onIntersectAlliances">
         <h2 class="titleCustom" style="color: #F3B007;">
           {{ $t("/alliances") }}
@@ -98,8 +103,8 @@
           {{ $t("alliances p1") }}
         </p>
         <v-row>
-            <v-col v-for="item in items" :key="item.src" xl="3" lg="3" sm="12">
-              <transition name="slide-down" class="slide-down">
+            <v-col cols="12" v-for="item in items" :key="item.src" xl="3" lg="3" sm="12">
+              <transition name="slide-down">
                 <v-container v-show="item.show" style="border: 4px solid #F3B007; height: 240px; display: flex; justify-content: center; align-items: center;">
                     <v-hover v-slot="{ hover }">
                       <v-card style="width: 170px; height: 100px; display: flex; justify-content: center; align-items: center;" :style="{ transform: hover ? 'scale(1.2)' : 'scale(1)', transition: 'all 0.2s ease-in-out' }">
@@ -119,10 +124,10 @@
         </v-row>
       </v-container>
     </section>
-    <v-container style="background-color: #FFFFFF;" v-intersect="onIntersectInternationalExperience">
+    <v-container style="background-color: #FFFFFF;" v-intersect="onIntersectInternationalExperience" class="fullscreen">
       <v-row>
-        <v-col xl="8" lg="8" sm="12">
-        <transition name="slide-right" class="slide-right">
+        <v-col cols="12" xl="8" lg="8" sm="12">
+        <transition name="slide-right">
           <v-container v-show="showInternationalExperience">
             <h2 class="titleCustom" style="color: #4c4c4c;">
               {{ $t("International experience") }}
@@ -138,14 +143,14 @@
           </v-container>
         </transition>
         </v-col>
-        <v-col xl="4" lg="4" sm="12">
-          <transition name="slide-left" class="slide-left">
+        <v-col cols="12" xl="4" lg="4" sm="12">
+          <transition name="slide-left">
             <v-img style="border-radius: 2%; margin-top: 30px;" src="/images/us/iStock-831031024.jpg" v-show="showInternationalExperience"></v-img>
           </transition>
         </v-col>
       </v-row>
     </v-container>
-    <section class="parallax-section" :style="{ backgroundImage: `url('/images/us/pyd_index.jpg')` }">
+    <section class="parallax-section fullscreen" :style="{ backgroundImage: `url('/images/us/pyd_index.jpg')` }">
       <v-container v-intersect="onIntersectProduct">
         <h2 class="titleCustom" style="color: #4c4c4c;">
           {{ $t("/products") }}
@@ -153,8 +158,8 @@
         <hr aria-orientation="horizontal" class="dividerCustom" style="width: 50%;">
         <br>
         <v-row>
-          <v-col v-for="(product, index) in products" :key="index" xl="3" lg="3" sm="12">
-            <transition name="slide-left" class="slide-left">
+          <v-col cols="12" v-for="(product, index) in products" :key="index" xl="3" lg="3" sm="12">
+            <transition name="slide-left">
               <v-container v-show="product.show" class="align-center text-center" style="border: 5px solid #F3B007; height: 100%; display: table;"
               :style="{ backgroundColor: index % 2 === 0 ? '#F3B007' : '' }">
                 <v-container style="cursor: pointer; display: table-cell; vertical-align: middle;" @click="redirect(product.link)"
@@ -187,7 +192,6 @@
 </template>
 
 <script lang="ts">
-  import i18n from '../plugins/i18n';
   import { defineComponent } from 'vue';
 
   export default defineComponent({
@@ -275,8 +279,11 @@
       },
 
       onIntersectImg(isIntersecting: boolean): void {
-        if (isIntersecting && !this.showImg)
-          this.showImg = true;
+        if (isIntersecting && !this.showImg) {
+          setTimeout(() => {
+            this.showImg = true;
+          }, 1000);
+        }
       },
 
       onIntersectAlliances(isIntersecting: boolean) {

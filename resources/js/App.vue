@@ -6,12 +6,14 @@
 
     .fullscreen {
         width: 100vw;
-        height: 100vh;
+        min-height: calc(100vh - 64px); /* Ajusta el valor de 64px a tu barra superior de navegación */
+        height: 100%;
     }
 
     .fullscreen90 {
         width: 100vw;
-        height: 90vh;
+        min-height: calc(100vh - 128px); /* Ajusta el valor de 64px a tu barra superior de navegación */
+        height: 100%;
     }
 
     /* Transitions */
@@ -36,13 +38,13 @@
     .slide-left-enter-active,.slide-left-leave-active {
         transition: transform 1s;
     }
-    .slide-left-enter {
+    .slide-left-enter-from {
         transform: translateX(-20%);
     }
     .slide-left-enter-to {
         transform: translateX(0);
     }
-    .slide-left-leave {
+    .slide-left-leave-from {
         transform: translateX(0);
     }
     .slide-left-leave-to {
@@ -52,13 +54,13 @@
     .slide-up-enter-active,.slide-up-leave-active {
         transition: transform 1s;
     }
-    .slide-up-enter {
+    .slide-up-enter-from {
         transform: translateY(20%);
     }
     .slide-up-enter-to {
         transform: translateY(0);
     }
-    .slide-up-leave {
+    .slide-up-leave-from {
         transform: translateY(0);
     }
     .slide-up-leave-to {
@@ -68,13 +70,13 @@
     .slide-down-enter-active,.slide-down-leave-active {
         transition: transform 1s;
     }
-    .slide-down-enter {
+    .slide-down-enter-from {
         transform: translateY(-20%);
     }
     .slide-down-enter-to {
         transform: translateY(0);
     }
-    .slide-down-leave {
+    .slide-down-leave-from {
         transform: translateY(0);
     }
     .slide-down-leave-to {
@@ -105,6 +107,21 @@
         align-items: center;
         justify-content: center;
         color: white;
+    }
+
+    /* Entra de abajo hacia arriba, sale para arriba y cuando vuelve a aparecer entra de arriba hacia abajo */
+    .slide-in-bottom-enter-from {
+        transform: translateY(100%);
+    }
+    .slide-in-bottom-enter-to {
+        transform: translateY(0);
+    }
+    .slide-in-bottom-leave-to {
+        transform: translateY(-100%);
+    }
+    .slide-in-bottom-enter-active,
+    .slide-in-bottom-leave-active {
+        transition: all 0.5s ease-out;
     }
 </style>
 

@@ -14,12 +14,17 @@
                         variant="underlined"
                     ></v-text-field>
                     <v-text-field
-                        :rules="[required]"
-                        clearable
-                        label="Password"
                         v-model="password"
+                        clearable
+                        :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+                        :rules="[rules.required, rules.min]"
+                        :type="show1 ? 'text' : 'password'"
+                        name="input-10-1"
+                        label="Password"
+                        counter
                         variant="underlined"
                         placeholder="Enter your password"
+                        @click:append="show1 = !show1"
                     ></v-text-field>
                     <br>
                     <v-btn :disabled="!form" :loading="loading" block color="#f3b007" size="large" type="submit" variant="elevated">
@@ -36,11 +41,17 @@
 
     export default {
         data: () => ({
+            show1: false,
             form: false,
             email: null,
             password: null,
             loading: false,
-            show: false
+            show: false,
+            rules: {
+                required: value => !!value || 'Required.',
+                min: v => v.length >= 8 || 'Min 8 characters',
+                emailMatch: () => (`The email and password you entered don't match`),
+            },
         }),
 
         methods: {
