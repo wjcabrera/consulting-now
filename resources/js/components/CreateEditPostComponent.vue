@@ -23,7 +23,7 @@
                             <v-select
                                 v-model="post.category"
                                 :items="categories"
-                                item-text="name"
+                                item-title="name"
                                 item-value="id"
                                 label="Categoria"
                             ></v-select>
@@ -142,11 +142,26 @@
                 ['clean']
             ],
             categories: [
-                'Medicion de talento',
-                'Soluciones de formación',
-                'Nuevas estrategias de intervención',
-                'Cambio e inovacion',
-                'Soluciones de formación'
+                {
+                    'name': 'Medicion de talento',
+                    'id': 'talent measurement'
+                },
+                {
+                    'name': 'Soluciones de formación',
+                    'id': 'training solutions'
+                },
+                {
+                    'name': 'Nuevas estrategias de intervención',
+                    'id': 'new intervention strategies'
+                },
+                {
+                    'name': 'Cambio e inovacion',
+                    'id': 'change and innovation'
+                },
+                {
+                    'name': 'Coaching',
+                    'id': 'coaching'
+                }
             ]
         }),
 

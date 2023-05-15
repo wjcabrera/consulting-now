@@ -73,25 +73,27 @@
                     <v-text-field
                         outlined
                         variant="solo"
-                        :label="searchLabel"
+                        :label="$t('search')"
                         v-model="searchText"
                         append-inner-icon="mdi-magnify"
                     ></v-text-field>
 
                     <v-list>
                         <v-list-subheader>
-                            {{ $t("Categorias")}}
+                            {{ $t("Categories")}}
                         </v-list-subheader>
 
                         <v-list-item v-for="(category) in categorys" min-height="10" :value="category" active-color="#F3B007" rounded="xl">
-                            <v-list-item-title @click="filter(category.title)" v-text="category.title" color="#4c4c4c" style="padding-left: 2%; font-size: smaller;"></v-list-item-title>
+                            <v-list-item-title @click="filter(category.title)" color="#4c4c4c" style="padding-left: 2%; font-size: smaller;">
+                                {{ $t(category.title) }}
+                            </v-list-item-title>
                             <v-divider></v-divider>
                         </v-list-item>
                     </v-list>
 
                     <v-list lines="two">
                         <v-list-subheader>
-                            {{ $t("Ultimos post")}}
+                            {{ $t("last posts")}}
                         </v-list-subheader>
 
                         <v-list-item v-for="(post, i) in posts" :key="i" :value="post" active-color="#F3B007" rounded="xl" @click="getPostById(post.id)">
@@ -151,19 +153,19 @@ import axios from 'axios';
             ],
             categorys: [
                 {
-                    title: 'Medicion de talento'
+                    title: 'talent measurement'
                 },
                 {
-                    title: 'Soluciones de formación' 
+                    title: 'training solutions' 
                 },
                 {
-                    title: 'Nuevas estrategias de intervención'
+                    title: 'new intervention strategies'
                 },
                 {
-                    title: 'Cambio e inovacion'
+                    title: 'change and innovation'
                 },
                 {
-                    title: 'Soluciones de formación'
+                    title: 'coaching'
                 }
             ]
         }),
@@ -178,10 +180,12 @@ import axios from 'axios';
             },
 
             filter(categoryId: string) {
+                console.log(categoryId);
                 if (this.categotySelected == categoryId) {
                     this.selected = this.posts;
                 } else {
-                    this.selected = this.posts.filter(post => post.category === categoryId);
+                    console.log(this.posts);
+                    this.selected = this.posts.filter(post => post.category.toLowerCase() === categoryId.toLowerCase());
                     this.categotySelected = categoryId;
                 }
             },

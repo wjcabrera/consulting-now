@@ -35,12 +35,13 @@
                     backgroundImage: `url('/images/products/opto-back2.jpg')`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
+                    display: 'flex',
                 }">
                     <v-container class="d-flex justify-center align-center">
                         <v-row class="d-flex">
                             <v-col cols="12" class="align-self-center" xl="6" lg="6" sm="12">
                                 <h1 class="h1Custom">
-                                    Data-driven Analitics
+                                    {{ $t('dataDriven.title') }}
                                 </h1>
                             </v-col>
                             <v-col cols="12" class="align-self-center" xl="6" lg="6" sm="12">
@@ -51,11 +52,11 @@
             </transition>
         </div>
     </div>
-    <v-container class="fullscreen">
-        <v-container class="d-flex justify-center align-center" v-intersect="onIntersectWindow2">
+    <v-container class="">
+        <v-container v-intersect="onIntersectWindow2">
             <transition name="slide-up">
                 <v-container v-show="window2">
-                    <v-container class="d-flex justify-center align-center">
+                    <v-container>
                         <v-row>
                             <v-col cols="12" xl="6" lg="6" sm="12">
                                 <h2 class="h2Custom" style="color: #4c4c4c;">
@@ -63,36 +64,36 @@
                                 </h2>
                                 <hr aria-orientation="horizontal" style="height: 4px; color: white; background-color: #F3B007; border-color: white; border: 0px;">
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    La prueba de personalidad OPTO permite obtener, filtrar, desarrollar y reclutar talentos instantáneamente en función de criterios de rendimiento objetivos, análisis integrados e informes intuitivos
+                                    {{ $t('dataDriven.0') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    La combinación de análisis de performance y soporte para la toma de decisiones crea una experiencia completamente nueva y un nivel de calidad en todos los aspectos de atraer, adquirir y desarrollar talento.
+                                    {{ $t('dataDriven.1') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    OPTO es flexible y se enfoca en la performance, permitiendo a las organizaciones ser mucho más eficientes.
+                                    {{ $t('dataDriven.2') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    OPTO se basa en el modelo Big Five que mide 8 dimensiones de personalidad relevantes para el rendimiento en el trabajo y el éxito laboral general.
+                                    {{ $t('dataDriven.3') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    Cada dimensión incluye aspectos que miden elementos específicos de esa dimensión. Esto proporciona flexibilidad en términos del nivel requerido de complejidad y detalle.
+                                    {{ $t('dataDriven.4') }}
                                 </p>
                             </v-col>
                             <v-col cols="12" xl="6" lg="6" sm="12" style="padding-top: 4%;">
                                 <h4 class="h4Custom" style="color: #4c4c4c;">
-                                    QUE ES OPTO?
+                                    {{ $t('dataDriven.5') }}
                                 </h4>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    → Evaluación de candidatos basada en datos que mejora la calidad de las decisiones.
+                                    {{ $t('dataDriven.6') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    → Información analítica con criterios objetivos de desempeño laboral y comercial.
+                                    {{ $t('dataDriven.7') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    → Digitalización que crea eficiencias internas y reduce los costos.
+                                    {{ $t('dataDriven.8') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    →Informes gráficos y escalables que coincide con diferentes roles y necesidades .
+                                    {{ $t('dataDriven.9') }}
                                 </p>
                             </v-col>
                         </v-row>
@@ -101,7 +102,7 @@
             </transition>
         </v-container>
     </v-container>
-    <v-container class="fullscreen">
+    <v-container class="" style="display: flex;">
         <v-container class="d-flex justify-center align-center" v-intersect="onIntersectWindow3">
             <transition name="slide-up">
                 <v-container v-show="window3">
@@ -113,26 +114,26 @@
                                 </h2>
                                 <hr aria-orientation="horizontal" style="height: 4px; color: white; background-color: #F3B007; border-color: white; border: 0px;">
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    Es una herramienta que identifica características de personalidad y rasgos de comportamiento cooperando en la optimización de los procesos de Gestión de Talento.
+                                    {{ $t('dataDriven.10') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    Mide y describe el comportamiento en 3 dimensiones y 9 propiedades básicas.
+                                    {{ $t('dataDriven.11') }}
                                 </p>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    Los resultados se transmiten en informes diseñados para adaptarse a diferentes necesidades.
+                                    {{ $t('dataDriven.12') }}
                                 </p>
                             </v-col>
                             <v-col cols="12" xl="6" lg="6" sm="12" style="padding-top: 4%;">
                                 <h4 class="h4Custom" style="color: #4c4c4c;">
-                                    Áreas de aplicación
+                                    {{ $t('dataDriven.13') }}
                                 </h4>
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    MPA es una evaluación confiable para procesos internos y externos de reclutamiento y desarrollo. Es adecuado para su uso en todos los niveles y en una amplia gama de aplicaciones.
+                                    {{ $t('dataDriven.14') }}
                                 </p>
                             </v-col>
                             <v-container class="d-flex justify-center align-center">
                                 <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
-                                    Volver
+                                    {{ $t('return') }}
                                 </v-btn>
                             </v-container>
                         </v-row>

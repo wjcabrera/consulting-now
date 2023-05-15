@@ -35,10 +35,10 @@
                         <v-row class="d-flex">
                             <v-col cols="12" class="align-self-center" xl="4" lg="4" sm="12">
                                 <h1 class="h1Custom">
-                                    Experiencia de Cambio
+                                    {{ $t('experienceChangeView.title') }}
                                 </h1>
                                 <p class="pCustom" style="color: #fafafa;">
-                                    La inteligencia Conversacional (C-IQ) es una habilidad inherente al ser humano, que se puede potenciar, desplegar y desarrollar, y nos permite conectarnos unos con otros y crecer juntos a partir de esa conexión. Es una destreza que precisamos desarrollar, si queremos construir organizaciones más resilientes en un mundo de grandes cambios.
+                                    {{ $t('experienceChangeView.0') }}
                                 </p>
                             </v-col>
                             <v-col cols="12" class="align-self-center" xl="8" lg="8" sm="12">
@@ -57,18 +57,18 @@
                         <v-row>
                             <v-col cols="12" xl="6" lg="6" sm="12">
                                 <h3 class="h3Custom">
-                                    La experiencia de cambio invita a los participantes a considerar el cambio como un proceso y no como un suceso.
+                                    {{ $t('experienceChangeView.1') }}
                                 </h3>
                                 <hr aria-orientation="horizontal" style="height: 4px; color: white; background-color: #F3B007; border-color: white; border: 0px;">
                                 <p class="pCustom" style="color: #4c4c4c;">
-                                    La experiencia de cambio invita a los participantes a considerar el cambio como un proceso y no como un suceso. Se trata de un workshop de un día de duración en donde la audiencia es dividida en grupos y se los invita a experimentar de primera mano lo que significa implementar un proceso de cambio desde la concepción y análisis del mismo, hasta su comunicación e implementación. Cada grupo interactúa con una plataforma simulada en donde se puede apreciar el impacto que sus acciones generan, recibiendo feedback inmediato, fomentando el intercambio en el equipo y promoviendo una experiencia acelerada de aprendizaje. Entre cada una de las actividades se plantean intervenciones de teoría para apuntalar los conceptos básicos a considerar.
+                                    {{ $t('experienceChangeView.2') }}
                                 </p>
                             </v-col>
                             <v-col cols="12" class="d-flex justify-center align-center" xl="6" lg="6" sm="12">
                                 <v-img src="/images/pdf/ex_cambio.png" max-width="89" width="78" height="120" @click="abrirPDF" style="cursor: pointer;"></v-img>
                                 <font-awesome-icon @click="abrirPDF" icon="fa-regular fa-circle-down" style="color: #F3B007; width: 50px; height: 50px; cursor: pointer; margin-left: 5%;" />
                                 <p class="pCustom" style="color: #4c4c4c; cursor: pointer; margin-left: 5%;" @click="abrirPDF">
-                                    descargar PDF
+                                    {{ $t('download') }} PDF
                                 </p>
                             </v-col>
                         </v-row>
@@ -113,7 +113,7 @@
                     </v-container>
                     <v-container class="d-flex justify-center">
                         <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
-                            Volver
+                            {{ $t('return') }}
                         </v-btn>
                     </v-container>
                 </v-container>

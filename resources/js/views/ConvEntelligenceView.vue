@@ -91,7 +91,7 @@
                     </v-container>
                     <v-container class="d-flex justify-center">
                         <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
-                            Volver
+                            {{ $t('return') }}
                         </v-btn>
                     </v-container>
                 </v-container>

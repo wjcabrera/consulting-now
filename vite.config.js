@@ -3,15 +3,6 @@ import laravel from 'laravel-vite-plugin';
 import vue from '@vitejs/plugin-vue';
 
 export default defineConfig({
-    // server: {
-    //     host: '0.0.0.0',
-    // },
-    // server: {
-    //     host: true,
-    //     hmr: {
-    //         host: 'localhost'
-    //     }
-    // },
     plugins: [
         laravel({
             input: [
@@ -33,5 +24,17 @@ export default defineConfig({
         alias: {
             vue: 'vue/dist/vue.esm-bundler.js',
         },
+    },
+    build: {
+        rollupOptions: {
+            output:{
+                manualChunks(id) {
+                    if (id.includes('node_modules')) {
+                        return id.toString().split('node_modules/')[1].split('/')[0].toString();
+                    }
+                }
+            }
+        },
+        chunkSizeWarningLimit: 1600,
     },
 });

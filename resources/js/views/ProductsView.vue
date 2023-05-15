@@ -153,6 +153,7 @@
 </template>
 
 <script lang="ts">
+    import i18n from '../plugins/i18n';
     export default {
         data: () => ({
             selectedItem: {
@@ -170,15 +171,15 @@
                     category: 1
                 },
                 {
-                    title: 'Training Solutions',
+                    title: 'training solutions',
                     category: 2
                 },
                 {
-                    title: 'Coaching',
+                    title: 'coaching',
                     category: 3
                 },
                 {
-                    title: 'New intervention strategies',
+                    title: 'new intervention strategies',
                     category: 4
                 }
             ],
@@ -240,7 +241,7 @@
                 {
                     src: '/images/products/productos-coaching.png',
                     category: 3,
-                    title: "Coaching",
+                    title: "coaching",
                     link: '/products/coaching' 
                 },
                 {
@@ -257,7 +258,7 @@
                     title: '',
                     link: ''
                 }
-            ]
+            ],
         }),
 
         methods: {
@@ -273,19 +274,21 @@
             order() {
                 this.iconActive = !this.iconActive;
                 this.selected = this.selected.reverse();
+            },
+
+            compareByTitle(a: any, b: any): number {
+                if (this.$t(a.title) < this.$t(b.title)) {
+                    return -1;
+                }
+                if (this.$t(a.title) > this.$t(b.title)) {
+                    return 1;
+                }
+                return 0;
             }
         },
 
         mounted() {
-            this.selected = this.products.sort((a, b) => {
-                if (a.title > b.title) {
-                    return 1;
-                } else if (a.title < b.title) {
-                    return -1;
-                } else {
-                    return 0;
-                }
-            });
+            this.selected = this.products.sort(this.compareByTitle);
         },
 
         watch: {

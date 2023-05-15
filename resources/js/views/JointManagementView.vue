@@ -48,11 +48,11 @@
                         <v-row class="d-flex" style="margin-top: -4%;">
                             <v-col cols="12" class="align-self-center" xl="6" lg="6" sm="12">
                                 <h1 class="h1Custom">
-                                    Gestión Conjunta
+                                    {{ $t('jointManagement.title') }}
                                 </h1>
                                 <br>
                                 <h2 class="h2Custom" style="color: #fafafa;">
-                                    Análisis multidimensional de la cultura para gestar el cambio y promover la transformación.
+                                    {{ $t('jointManagement.0') }}
                                 </h2>
                             </v-col>
                             <v-col cols="12" xl="6" lg="6" sm="12">
@@ -69,47 +69,48 @@
                 <v-row v-show="window2">
                     <v-col cols="12" xl="6" lg="6" sm="12" style="padding-top: 5%; padding-right: 2%;">
                         <h3 class="h3Custom">
+                            {{ $t('jointManagement.title') }}
                             Gestión Conjunta
                         </h3>
                         <hr aria-orientation="horizontal" style="height: 4px; color: white; background-color: #F3B007; border-color: white; border: 0px;">
                         <br>
                         <p class="pCustom" style="color: #4c4c4c;">
-                            Desde Consulting Now, entendemos que podemos sumar una mirada externa fresca y objetiva a las necesidades actuales, con el agregado de expertise y conocimiento de gestión para apoyar el Negocio y la proyección futura.
+                            {{ $t('jointManagement.1') }}
                         </p>
                         <p class="pCustom" style="color: #4c4c4c;">
-                            Gestión Conjunta propone contar con un pilar externo que agregue valor al gestionar en colaboración , apuntalando cada situación y cada persona para agilizar los resultados.
+                            {{ $t('jointManagement.2') }}
                         </p>
                         <v-container style="display: inline-flex; justify-content: flex-start; align-items: center;">
                             <v-img src="/images/pdf/gestion_conjunta.png" max-width="89" width="78" height="120" @click="abrirPDF" style="cursor: pointer;"></v-img>
                             <font-awesome-icon @click="abrirPDF" icon="fa-regular fa-circle-down" style="color: #F3B007; width: 50px; height: 50px; cursor: pointer; margin-left: 5%;" />
                             <p class="pCustom" style="color: #4c4c4c; cursor: pointer; margin-left: 5%;" @click="abrirPDF">
-                                descargar PDF
+                                {{ $t('download') }} PDF
                             </p>
                         </v-container>
                     </v-col>
                     <v-col cols="12" xl="6" lg="6" sm="12" style="background-color: #F7F7F7; padding: 5%;">
                         <h4 class="h4Custom">
-                            Talento
+                            {{ $t('jointManagement.3') }}
                         </h4>
                         <hr aria-orientation="horizontal" style="height: 4px; color: white; background-color: #F3B007; border-color: white; border: 0px;">
                         <p class="pCustom" style="color: #4c4c4c;">
-                            → Apuntalar los pilares de la estrategia, con herramientas, procesos y sistemas clave para apoyar los diferentes desafíos.
+                            {{ $t('jointManagement.4') }}
                         </p>
                         <p class="pCustom" style="color: #4c4c4c;">
-                            → Identificar y medir el talento de manera objetiva y precisa en cada nivel.
+                            {{ $t('jointManagement.5') }}
                         </p>
                         <p class="pCustom" style="color: #4c4c4c;">
-                            → Colaborar en los procesos de selección e incorporación de personal clave.
+                            {{ $t('jointManagement.6') }}
                         </p>
                         <p class="pCustom" style="color: #4c4c4c;">
-                            → Homologación de competencias y comportamientos para diseñar una arquitectura del talento, creando soluciones para las diferentes circunstancias.
+                            {{ $t('jointManagement.7') }}
                         </p>
                         <p class="pCustom" style="color: #4c4c4c;">
-                            → Desarrollo y formación en las distintas áreas: Cliente, Operaciones, Cambio e Innovación y Liderazgo.
+                            {{ $t('jointManagement.8') }}
                         </p>
                         <v-container class="d-flex justify-center align-center">
                             <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
-                                Volver
+                                {{ $t('return') }}
                             </v-btn>
                         </v-container>
                     </v-col>

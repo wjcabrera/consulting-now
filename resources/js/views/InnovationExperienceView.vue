@@ -37,11 +37,11 @@
                             </v-col>
                             <v-col cols="12" class="align-self-center" xl="4" lg="4" sm="12" style="margin-top: -10%;">
                                 <h1 class="h1Custom">
-                                    Experiencia de Innovación
+                                    {{ $t('innovationExperienceView.title') }}
                                 </h1>
                                 <br>
                                 <p class="pCustom" style="color: #fafafa;">
-                                    Esta Experiencia de Innovación provee técnicas que ejercitan un pensar diferente trabajando sobre soluciones creativas, para generar resultados de alto impacto.
+                                    {{ $t('innovationExperienceView.0') }}
                                 </p>
                             </v-col>
                         </v-row>
@@ -56,28 +56,28 @@
                 <v-row v-show="window2">
                     <v-col cols="12" xl="6" lg="6" sm="12">
                         <h3 class="h3Custom">
-                            Un programa diseñado para que las personas puedan ser auténticas protagonistas de su futuro.
+                            {{ $t('innovationExperienceView.1') }}
                         </h3>
                         <hr aria-orientation="horizontal" style="height: 4px; color: white; background-color: #F3B007; border-color: white; border: 0px;">
                         <p class="pCustom" style="color: #4c4c4c;">
-                            Esta Experiencia de Innovación provee técnicas que ejercitan un pensar diferente trabajando sobre soluciones creativas, para generar resultados de alto impacto.
+                            {{ $t('innovationExperienceView.2') }}
                         </p>
                         <p class="pCustom" style="color: #4c4c4c;">
-                            Este tipo de experiencia pone foco en las personas y se vale de los recursos de diseño para integrar las necesidades y los requerimientos para el éxito del negocio. Se nutre de la intuición para visualizar patrones e integra ideas emocionalmente funcionales.
+                            {{ $t('innovationExperienceView.3') }}
                         </p>
                     </v-col>
                     <v-col cols="12" xl="6" lg="6" sm="12">
                         <p class="pCustom" style="color: #4c4c4c;">
-                            Se trabaja en equipo para hacer frente a un proyecto de innovación realista. Al avanzar a través del proceso de diseño, la simulación ofrece lo esencial para un desafío innovador.
+                            {{ $t('innovationExperienceView.4') }}
                         </p>
                         <p class="pCustom" style="color: #4c4c4c;">
-                            Haciendo foco en lo importante, un experto lidera los equipos explorando distintas técnicas y alentando nuevas idea.
+                            {{ $t('innovationExperienceView.5') }}
                         </p>
                         <v-container style="display: inline-flex; justify-content: flex-start; align-items: center;">
                             <v-img src="/images/pdf/transforming_.png" max-width="89" width="78" height="120" @click="abrirPDF" style="cursor: pointer;"></v-img>
                             <font-awesome-icon @click="abrirPDF" icon="fa-regular fa-circle-down" style="color: #F3B007; width: 50px; height: 50px; cursor: pointer; margin-left: 5%;" />
                             <p class="pCustom" style="color: #4c4c4c; cursor: pointer; margin-left: 5%;" @click="abrirPDF">
-                                descargar PDF
+                                {{ $t('donwload') }} PDF
                             </p>
                         </v-container>
                     </v-col>
@@ -102,7 +102,7 @@
                     </v-container>
                     <v-container class="d-flex justify-center">
                         <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
-                            Volver
+                            {{ $t('return') }}
                         </v-btn>
                     </v-container>
                 </v-container>

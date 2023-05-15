@@ -41,7 +41,9 @@ line-height: 35px;
     <v-footer style="justify-content: center; background-color: #F3B007;">
         <v-container class="relative">
             <v-container style="width: fit-content; display: inline-block;">
-                <h2 class="titleCustom" style="color: #fafafa; text-align: left;">Nuestras Oficinas</h2>
+                <h2 class="titleCustom" style="color: #fafafa; text-align: left;">
+                    {{ $t('footer.0') }}
+                </h2>
                 <hr aria-orientation="horizontal" style="height: 4px; color: white; background-color: white; border-color: white; border: 0px; text-align: left;">
             </v-container>
             <v-container class="absolute">
@@ -49,40 +51,52 @@ line-height: 35px;
                     <v-row>
                         <v-col cols="12" xl="4" lg="4" sm="12">
                             <h4>
-                                America del norte
+                                {{ $t('footer.1') }}
                             </h4>
                             <br>
                             <b>
-                                EE.UU
+                                {{ $t('footer.2') }}
                             </b>
                             <a href="mailto:info.usa@consultingnow.solutions"> info.usa@consultingnow.solutions</a>
                             <br>
                             <b>
-                                México
+                                {{ $t('footer.3') }}
                             </b>
                             <a href="mailto:info.mexico@consultingnow.solutions"> info.mexico@consultingnow.solutions</a>
                         </v-col>
                         <v-col cols="12" xl="4" lg="4" sm="12">
-                            <h4>America del sur</h4>
+                            <h4>
+                                {{ $t('footer.4') }}
+                            </h4>
                             <br>
                             <b>
-                                Argentina
+                                {{ $t('footer.5') }}
                             </b>
                             <a href="mailto:info.argentina@consultingnow.solutions"> info.argentina@consultingnow.solutions</a>
                             <br>
-                            <b>Chile</b>
+                            <b>
+                                {{ $t('footer.6') }}
+                            </b>
                             <a href="mailto:info.chile@consultingnow.solutions"> info.chile@consultingnow.solutions</a>
                             <br>
-                            <b>Brasil</b>
+                            <b>
+                                {{ $t('footer.7') }}
+                            </b>
                             <a href="mailto:info.brasil@consultingnow.solutions"> info.brasil@consultingnow.solutions</a>
                         </v-col>
                         <v-col cols="12" xl="4" lg="4" sm="12">
-                            <h4>Europa</h4>
+                            <h4>
+                                {{ $t('footer.8') }}
+                            </h4>
                             <br>
-                            <b>España</b>
+                            <b>
+                                {{ $t('footer.9') }}
+                            </b>
                             <a href="mailto:info.espana@consultingnow.solutions"> info.espana@consultingnow.solutions</a>
                             <br>
-                            <b>Portugal</b>
+                            <b>
+                                {{ $t('footer.10') }}
+                            </b>
                             <a href="mailto:info.portugal@consultingnow.solutions"> info.portugal@consultingnow.solutions</a>
                         </v-col>
                     </v-row>
@@ -94,24 +108,6 @@ line-height: 35px;
 
 <script lang="ts">
     export default{
-        data: () => ({
-            oficinas: [
-                {
-                    aNorth: 'EE.UU info.usa@consultingnow.solutions',
-                    aSouth: 'Argentina info.argentina@consultingnow.solutions',
-                    europe: 'España info.espana@consultingnow.solutions',
-                },
-                {
-                    aNorth: 'México info.mexico@consultingnow.solutions',
-                    aSouth: 'Chile info.chile@consultingnow.solutions',
-                    europe: 'Portugal info.portugal@consultingnow.solutions'
-                },
-                {
-                    aNorth: '',
-                    aSouth: 'Brasil info.brasil@consultingnow.solutions',
-                    europe: ''
-                }
-            ]
-        }),
+        data: () => ({})
     }
 </script>

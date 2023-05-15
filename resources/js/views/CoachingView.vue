@@ -42,31 +42,32 @@
                         <v-row>
                             <v-col cols="12" class="align-self-center" xl="4" lg="4" sm="12">
                                 <h1 class="h1Custom">
-                                    Coaching
+                                    {{ $t('coachingView.title') }}
                                 </h1>
                                 <br>
                                 <p class="pCustom" style="color: #fafafa;">
-                                    Coaching de Equipos como forma de trabajar en la interacción de los equipos, generando conocimiento sobre los distintos perfiles que conforman el equipo, con el fin de adecuar la mejor forma de intercambiar la información, facilitando la comunicación y construyendo confianza y valores comunes.
+                                    {{ $t('coachingView.5') }}
                                 </p>
                             </v-col>
                             <v-col cols="12" xl="4" lg="4" sm="12">
                                 <v-container style="border: 4px solid #F3B007; padding: 14%;">
                                     <h4 class="h4Custom" style="text-align: center;">
-                                        Análisis de las necesidades
+                                        {{ $t('coachingView.6') }}
                                     </h4>
                                     <br>
                                     <p class="pCustom" style="text-align: center; padding-top: 16px; color: #fafafa;">
-                                        Para trazar los objetivos de trabajo y construir un Plan de Coaching consensuado. Se pueden incluir herramientas e Instrumentos que agilizan el reconocimiento de necesidades específicas y enfoque para promover el desarrollo
+                                        {{ $t('coachingView.7') }}
                                     </p>
                                 </v-container>
                             </v-col>
                             <v-col cols="12" xl="4" lg="4" sm="12">
                                 <v-container style="border: 4px solid #F3B007; padding: 14%;">
                                     <h4 class="h4Custom" style="text-align: center;">
+                                        {{ $t('coachingView.title') }}
                                         Coaching
                                     </h4>
                                     <p class="pCustom" style="text-align: center; padding-top: 16px; color: #fafafa;">
-                                        Reuniones virtuales o presenciales, entrenamiento en habilidades, incluyendo nuevos conceptos, practica de destrezas y actividades especificas para transferir las habilidades aprendidas al entorno de trabajo.
+                                        {{ $t('coachingView.8') }}
                                     </p>
                                 </v-container>
                             </v-col>
@@ -84,41 +85,41 @@
                     <v-row>
                         <v-col cols="12" xl="6" lg="6" sm="12">
                             <h2 class="h2Custom" style="color: #4c4c4c;">
-                                Coaching
+                                {{ $t('coachingView.title') }}
                             </h2>
                             <hr aria-orientation="horizontal" style="height: 4px; color: white; background-color: #F3B007; border-color: white; border: 0px;">
                             <br>
                             <p class="pCustom" style="color: #4c4c4c;">
-                                Es un proceso que contribuye al autoconocimiento y crecimiento personal y profesional haciendo foco en lo prioritario para fomentar un camino de desarrollo. Constituye un espacio único donde el potencial y las habilidades se ponen en juego para desplegar nuevas formas de afrontar los desafíos presentes y futuros.
+                                {{ $t('coachingView.0') }}
                             </p>
                             <p class="pCustom" style="color: #4c4c4c;">
-                                Es un recorrido que se inicia con un plan, se trazan objetivos a alcanzar, explicitando el contrato en general y alineando acciones y herramientas para responder a las diferentes necesidades. Favorece el aprendizaje y traduce los conceptos en habilidades concretas, brindando oportunidades de poner en práctica nuevas habilidades dentro de un contexto de guía y acompañamiento, estimulando además una adecuada transferencia al día a día.
+                                {{ $t('coachingView.1') }}
                             </p>
                         </v-col>
     
                         <v-col cols="12" xl="6" lg="6" sm="12" style="padding-top: 6%;">
                             <p class="pCustom" style="color: #4c4c4c;">
-                                Incluye coaching ejecutivo, diseñado para líderes e integrantes de la alta dirección y personalizado, de acuerdo a las necesidades individuales.
+                                {{ $t('coachingView.2') }}
                             </p>
                             <p class="pCustom" style="color: #4c4c4c;">
-                                Coaching de Equipos como forma de trabajar en la interacción de los equipos, generando conocimiento sobre los distintos perfiles que conforman el equipo, con el fin de adecuar la mejor forma de intercambiar la información, facilitando la comunicación y construyendo confianza y valores comunes.
+                                {{ $t('coachingView.3') }}
                             </p>
                             <p class="pCustom" style="color: #4c4c4c;">
-                                Se adapta y ajusta a las necesidades, utilizando instrumentos para promover entendimiento y aprendizaje.
+                                {{ $t('coachingView.4') }}
                             </p>
     
                             <v-container style="display: inline-flex; justify-content: flex-start; align-items: center;">
                                 <v-img max-width="89px" src="/images/pdf/coaching.png" width="78" height="120" style="cursor: pointer;"></v-img>
                                 <font-awesome-icon @click="abrirPDF" icon="fa-regular fa-circle-down" style="color: #F3B007; width: 50px; height: 50px; cursor: pointer; margin-left: 5%;" />
                                 <p class="pCustom" style="color: #4c4c4c; cursor: pointer; margin-left: 5%;" @click="abrirPDF">
-                                    descargar PDF
+                                    {{ $t('download')}} PDF
                                 </p>
                             </v-container>
                         </v-col>
                     </v-row>
                     <v-container class="d-flex justify-center align-center">
                         <v-btn rounded color="#F3B007" style="color: #fafafa; text-transform: none; text-align: center;" @click="redirect()">
-                            Volver
+                            {{ $t('return') }}
                         </v-btn>
                     </v-container>
                 </v-container>

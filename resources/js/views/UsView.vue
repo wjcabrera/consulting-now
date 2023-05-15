@@ -55,7 +55,9 @@
       backgroundPosition: 'center' }">
       <transition name="slide-right" appear>
         <v-container style="display: flex; align-items: center; justify-content: space-between;">
-          <h1 class="h1Custom" style="padding-bottom: 7%;">Gestión estratégica del Talento</h1>
+          <h1 class="h1Custom" style="padding-bottom: 7%;">
+            {{ $t('Strategic Talent Management') }}
+          </h1>
           <v-img max-width="25%" src="/images/logo-consulting-now.png" style="flex: 1; margin-top: 9%; margin-right: 1%;"></v-img>
         </v-container>
       </transition>
@@ -94,7 +96,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <section class="parallax-section fullscreen" :style="{ backgroundImage: `url(${'/images/us/photoPageUs2.jpg'})` }">
+    <section class="parallax-section fullscreen" :style="{ backgroundImage: `url(${'/images/us/photoPageUs2.jpg'})` }" style="display: flex; align-items: center;">
       <v-container v-intersect="onIntersectAlliances">
         <h2 class="titleCustom" style="color: #F3B007;">
           {{ $t("/alliances") }}
@@ -124,7 +126,7 @@
         </v-row>
       </v-container>
     </section>
-    <v-container style="background-color: #FFFFFF;" v-intersect="onIntersectInternationalExperience" class="fullscreen">
+    <v-container style="background-color: #FFFFFF;display: flex; align-items: center;" v-intersect="onIntersectInternationalExperience" class="fullscreen">
       <v-row>
         <v-col cols="12" xl="8" lg="8" sm="12">
         <transition name="slide-right">
@@ -150,7 +152,7 @@
         </v-col>
       </v-row>
     </v-container>
-    <section class="parallax-section fullscreen" :style="{ backgroundImage: `url('/images/us/pyd_index.jpg')` }">
+    <section class="parallax-section fullscreen" :style="{ backgroundImage: `url('/images/us/pyd_index.jpg')` }" style="display: flex; align-items: center;">
       <v-container v-intersect="onIntersectProduct">
         <h2 class="titleCustom" style="color: #4c4c4c;">
           {{ $t("/products") }}
