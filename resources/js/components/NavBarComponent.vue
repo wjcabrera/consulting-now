@@ -150,7 +150,7 @@ import axios from 'axios';
         window.open('https://www.linkedin.com/company/consulting-now/about/', '_blank');
       },
       async logout() {
-        await axios.post('/logout')
+        await axios.post('/newsite/consulting-now/public/logout')
           .then(() => {
             window.location.reload();
           })

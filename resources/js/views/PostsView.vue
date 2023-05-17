@@ -200,7 +200,7 @@ import axios from 'axios';
             },
 
             getPosts() {
-                axios.get('/getPosts')
+                axios.get('/newsite/consulting-now/public/getPosts')
                 .then((response) => {
                     this.posts = response.data.post;
                     this.selected = this.posts;

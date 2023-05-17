@@ -59,7 +59,7 @@
                 if (!this.form) return;
                 this.loading = true;
                 const vm = this;
-                await axios.post('/login', {
+                await axios.post('/newsite/consulting-now/public/login', {
                     email: this.email,
                     password: this.password
                 })

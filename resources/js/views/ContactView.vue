@@ -89,7 +89,7 @@
 
         methods: {
             async send() {
-                await axios.post('/send', {
+                await axios.post('/newsite/consulting-now/public/send', {
                     name: this.name,
                     email: this.email,
                     number: this.number,

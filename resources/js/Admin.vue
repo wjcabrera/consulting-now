@@ -175,7 +175,7 @@
 
             deletePost(): void {
                 let data = {id: this.postId}
-                axios.post('/deletePost', data)
+                axios.post('/newsite/consulting-now/public/deletePost', data)
                 .then((response) => {
                     this.getAllPosts();
                     this.showDelete = false;
@@ -203,7 +203,7 @@
             },
 
             async getAllPosts(): Promise<void> {
-                axios.get('/getPosts')
+                axios.get('/newsite/consulting-now/public/getPosts')
                 .then((response) => {
                     this.items = response.data.post;
                     this.selected = this.items;
@@ -214,7 +214,7 @@
             },
 
             async getCurrentUser(): Promise<void> {
-                await axios.get('/getCurrentUser')
+                await axios.get('/newsite/consulting-now/public/getCurrentUser')
                 .then((response) => {
                     this.user = response.data.user;
                 })

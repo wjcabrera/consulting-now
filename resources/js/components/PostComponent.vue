@@ -71,7 +71,7 @@ import axios from 'axios';
                     id: this.id
                 };
 
-                await axios.get('/getPostById', {
+                await axios.get('/newsite/consulting-now/public/getPostById', {
                     params: data
                 })
                 .then(response => {
@@ -82,7 +82,7 @@ import axios from 'axios';
             },
 
             getImageUrl() {
-                return this.post.file_path.replace('public', '/storage');
+                return this.post.file_path.replace('public', '/newsite/consulting-now/public/storage');
             },
         },
 

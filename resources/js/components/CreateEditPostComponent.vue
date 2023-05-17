@@ -192,7 +192,7 @@
                 formData.append('text_pt', this.post.text_pt);
                 this.post.file_path[0] == undefined ? '' : formData.append('file_path', this.post.file_path[0]);
 
-                await axios.post(this.edit ? '/editPost' : '/posts', formData, {
+                await axios.post(this.edit ? '/newsite/consulting-now/public/editPost' : '/newsite/consulting-now/public/posts', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -207,7 +207,7 @@
                     id: this.id
                 };
 
-                await axios.get('/getPostById', {
+                await axios.get('/newsite/consulting-now/public/getPostById', {
                     params: data
                 })
                 .then(response => {
