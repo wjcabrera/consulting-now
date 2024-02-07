@@ -43,16 +43,16 @@
                 <hr aria-orientation="horizontal" class="dividerCustom" style="text-align: left;">
             </v-container>
         </div>
-        <v-container id="creating" class="justify-center align-center fullscreen" style="display: flex;">
+        <v-container id="creating" class="justify-center align-center fullscreen90" style="display: flex;">
             <v-row v-intersect="onIntersectCreating">
-                <v-col cols="12" xl="4" lg="4" sm="12">
+                <v-col cols="12" xl="6" lg="4" sm="12">
                     <transition name="slide-up">
                         <v-img style="border-radius: 2%; margin-top: 30px; cursor: pointer;" src="/images/creating-we.png" @click="redirect('https://www.creatingwe.com/')" v-show="showCreating"></v-img>
                     </transition>
                 </v-col>
-                <v-col cols="12" xl="8" lg="8" sm="12">
+                <v-col cols="12" xl="6" lg="8" sm="12" style="display: flex; align-items: center;">
                     <transition name="slide-down">
-                        <v-container v-show="showCreating">
+                        <v-container v-show="showCreating" style="max-width: 1000px;">
                             <h2 class="titleCustom">
                                 Creating We
                             </h2>
@@ -76,11 +76,11 @@
             </v-row>
         </v-container>
         <div style="background-color: #F7F7F7;">
-            <v-container id="experience-point" class="justify-center align-center fullscreen" style="display: flex;">
+            <v-container id="experience-point" class="justify-center align-center fullscreen90" style="display: flex;">
                 <v-row v-intersect="onIntersectExpePoint">
-                    <v-col cols="12" xl="8" lg="8" sm="12">
+                    <v-col cols="12" xl="6" lg="8" sm="12" style="display: flex; align-items: center;">
                         <transition name="slide-right">
-                            <v-container v-show="showExpePoint">
+                            <v-container v-show="showExpePoint" style="max-width: 1000px;">
                                 <h2 class="titleCustom">
                                     ExperiencePoint
                                 </h2>
@@ -98,7 +98,7 @@
                             </v-container>
                         </transition>
                     </v-col>
-                    <v-col cols="12" xl="4" lg="4" sm="12">
+                    <v-col cols="12" xl="6" lg="4" sm="12">
                         <transition name="slide-left">
                             <v-img v-show="showExpePoint" style="border-radius: 2%; margin-top: 30px; cursor: pointer;" src="/images/ExperiencePoint_stacked_colour_lightBG.png" @click="redirect('https://www.experiencepoint.com/')"></v-img>
                         </transition>
@@ -106,16 +106,16 @@
                 </v-row>
             </v-container>
         </div>
-        <v-container id="master" class="justify-center align-center fullscreen" style="display: flex;">
+        <v-container id="master" class="justify-center align-center fullscreen90" style="display: flex;">
             <v-row  v-intersect="onIntersectMaster">
-                <v-col cols="12" xl="4" lg="4" sm="12">
+                <v-col cols="12" xl="6" lg="4" sm="12">
                     <transition name="slide-left">
                         <v-img style="border-radius: 2%; margin-top: 30px;" src="/images/master.png" v-show="showMaster"></v-img>
                     </transition>
                 </v-col>
-                <v-col cols="12" xl="8" lg="8" sm="12">
+                <v-col cols="12" xl="6" lg="8" sm="12" style="display: flex; align-items: center;">
                     <transition name="slide-down">
-                        <v-container v-show="showMaster">
+                        <v-container v-show="showMaster" style="max-width: 1000px;">
                             <h2 class="titleCustom">
                                 Master Value People
                             </h2>
@@ -139,11 +139,11 @@
             </v-row>
         </v-container>
         <div style="background-color: #F7F7F7;">
-            <v-container id="e-valuation" class="justify-center align-center fullscreen" style="display: flex;">
+            <v-container id="e-valuation" class="justify-center align-center fullscreen90" style="display: flex;">
                 <v-row v-intersect="onIntersectEValuation">
-                    <v-col cols="12" xl="8" lg="8" sm="12">
+                    <v-col cols="12" xl="6" lg="8" sm="12" style="display: flex; align-items: center;">
                         <transition name="slide-left">
-                            <v-container v-show="showEValuation">
+                            <v-container v-show="showEValuation" style="max-width: 1000px;">
                                 <h2 class="titleCustom">
                                     E-Valuation
                                 </h2>
@@ -155,7 +155,7 @@
                             </v-container>
                         </transition>
                     </v-col>
-                    <v-col cols="12" xl="4" lg="4" sm="12">
+                    <v-col cols="12" xl="6" lg="4" sm="12">
                         <transition name="slide-up">
                             <v-img v-show="showEValuation" style="border-radius: 2%; margin-top: 30px; cursor: pointer;" src="/images/logo-e-valuation.png" @click="redirect('https://www.e-valuation.com/')"></v-img>
                         </transition>

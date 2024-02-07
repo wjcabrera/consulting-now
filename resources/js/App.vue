@@ -145,8 +145,7 @@
         },
 
         data() {
-            return {
-            };
+            return {};
         },
     };
 </script>

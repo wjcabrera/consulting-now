@@ -1,29 +1,29 @@
 <style>
-    .w-57 {
-        width: 57%;
-    }
+.w-57 {
+    width: 57%;
+}
 
-    .pCustom {
-        font-size: 14px;
-        font-weight: 300;
-        letter-spacing: 0.5px;
-        line-height: 23px;
-    }
+.pCustom {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    line-height: 23px;
+}
 
-    .label-centered .v-label {
-        text-align: center;
-        width: 100%;
-    }
+.label-centered .v-label {
+    text-align: center;
+    width: 100%;
+}
 
-    .v-text-field .v-label {
-        max-width: 100%!important;
-    }
+.v-text-field .v-label {
+    max-width: 100% !important;
+}
 
-    .titleCustom {
-        font-size: 30px;
-        font-weight: 300;
-        line-height: 35px;
-    }
+.titleCustom {
+    font-size: 30px;
+    font-weight: 300;
+    line-height: 35px;
+}
 </style>
 
 <template>
@@ -43,10 +43,12 @@
             <v-form ref="form" v-model="valid" lazy-validation>
                 <v-row>
                     <v-col cols="12" lg="4" md="4" sm="12">
-                        <v-text-field v-model="name" :counter="10" :rules="nameRules" :label="$t('name')" required class="label-centered"></v-text-field>
+                        <v-text-field v-model="name" :counter="10" :rules="nameRules" :label="$t('name')" required
+                            class="label-centered"></v-text-field>
                     </v-col>
                     <v-col cols="12" lg="4" md="4" sm="12">
-                        <v-text-field v-model="email" :rules="emailRules" :label="$t('email')" required class="label-centered"></v-text-field>
+                        <v-text-field v-model="email" :rules="emailRules" :label="$t('email')" required
+                            class="label-centered"></v-text-field>
                     </v-col>
                     <v-col cols="12" lg="4" md="4" sm="12">
                         <v-text-field v-model="number" :label="$t('number')" class="label-centered"></v-text-field>
@@ -89,7 +91,7 @@
 
         methods: {
             async send() {
-                await axios.post('/newsite/consulting-now/public/send', {
+                await axios.post('/send', {
                     name: this.name,
                     email: this.email,
                     number: this.number,

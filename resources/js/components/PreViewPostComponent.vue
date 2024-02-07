@@ -1,28 +1,28 @@
 <style scoped>
-    .dividerCustom {
-        height: 5px;
-        background-color: #F3B007;
-        border: 0px;
-    }
+.dividerCustom {
+    height: 5px;
+    background-color: #F3B007;
+    border: 0px;
+}
 
-    .h1Custom {
-        color: #4c4c4c;
-        font-size: 36px;
-        font-weight: 300;
-        line-height: 50px;
-    }
+.h1Custom {
+    color: #4c4c4c;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 50px;
+}
 
-    .twoColumns {
-        column-count: 2;
-        column-gap: 20px;
-    }
+.twoColumns {
+    column-count: 2;
+    column-gap: 20px;
+}
 
-    .fullscreen {
-        width: 100vw;
-        min-height: calc(100vh - 64px); /* Ajusta el valor de 64px a tu barra superior de navegación */
-        height: 100%;
-    }
-
+.fullscreen {
+    width: 100vw;
+    min-height: calc(100vh - 64px);
+    /* Ajusta el valor de 64px a tu barra superior de navegación */
+    height: 100%;
+}
 </style>
 
 <template>
@@ -96,7 +96,7 @@ import axios from 'axios';
                     id: this.id
                 };
 
-                await axios.get('/newsite/consulting-now/public/getPostById', {
+                await axios.get('/getPostById', {
                     params: data
                 })
                 .then(response => {
@@ -107,7 +107,7 @@ import axios from 'axios';
             },
 
             getImageUrl() {
-                return this.post.file_path.replace('public', '/newsite/consulting-now/public/storage');
+                return this.post.file_path.replace('public', '/storage');
             },
 
             hiddenpreview() {

@@ -45,12 +45,12 @@
     "high impact solutions p1": "En la era de la convergencia, los aportes de la neurociencia y las nuevas tecnologías abren espacios a nuevos modelos y conocimiento, utilizando la conectividad como otro medio para canalizar contenidos y agilizar las intervenciones de consultoría.",
     "All": "Todas",
     "Talent Measurement Solutions": "Soluciones de medición de talento",
-    "Talent mapping": "Mapeo de talentos",
+    "Talent mapping": "Talent Mapping",
     "Talent Management Exercise": "Ejercicio de Gestión del Talento",
-    "Cross view 360° and 540°": "Vista cruzada 360° y 540°",
-    "Data-driven Analytics": "Análisis basado en datos",
+    "Cross view 360° and 540°": "Cross View 360° y 540°",
+    "Data-driven Analytics": "Data Analytics",
     "Innovation Experience": "Experiencia de Innovación",
-    "Exchange Experience": "Experiencia de intercambio",
+    "Exchange Experience": "Experiencia de Cambio",
     "Conversational Intelligence (C-IQ)": "Inteligencia Conversacional (C-IQ)",
     "Organizational Culture and the DNA of Leadership": "Cultura Organizacional y el ADN del Liderazgo",
     "Human centered design": "Diseño centrado en el ser humano",
@@ -60,7 +60,7 @@
     "training solutions": "Soluciones de formación",
     "new intervention strategies": "Nuevas estrategias de intervención",
     "change and innovation": "Cambio e inovacion",
-    "coaching": "Entrenamiento",
+    "coaching": "Coaching",
     "contact us": "Contactanos",
     "contact us p1": "Estamos a disposición por cualquier consulta. Contáctese con nosotros a las direcciones de correo según su ubicación o por favor complete el siguiente formulario y nos pondremos en contacto a la brevedad.",
     "name": "Nombre",
@@ -78,7 +78,7 @@
     "number": "Numero",
     "return": "Volver",
     "dataDriven": {
-        "title": "Análisis basado en datos",
+        "title": "Data Analytics",
         "0": "La prueba de personalidad OPTO permite obtener, filtrar, desarrollar y reclutar talentos instantáneamente en función de criterios de rendimiento objetivos, análisis integrados e informes intuitivos",
         "1": "La combinación de análisis de performance y soporte para la toma de decisiones crea una experiencia completamente nueva y un nivel de calidad en todos los aspectos de atraer, adquirir y desarrollar talento.",
         "2": "OPTO es flexible y se enfoca en la performance, permitiendo a las organizaciones ser mucho más eficientes." ,
@@ -141,7 +141,7 @@
         "21": "Mantenemos la misma calidad y la calidez que en lo presencial, acompañando el ejercicio de forma personal y con una coordinación en línea durante toda la experiencia."
     },
     "coachingView": {
-        "title": "Entrenamiento",
+        "title": "Coaching",
         "0": "Es un proceso que contribuye al autoconocimiento y crecimiento personal y profesional haciendo foco en lo prioritario para fomentar un camino de desarrollo. Constituye un espacio único donde el potencial y las habilidades se ponen en juego para desplegar nuevas formas de afrontar los desafíos presentes y futuros.",
         "1": "Es un recorrido que se inicia con un plan, se trazan objetivos a alcanzar, explicitando el contrato en general y alineando acciones y herramientas para responder a las diferentes necesidades. Favorece el aprendizaje y traduce los conceptos en habilidades concretas, brindando oportunidades de poner en práctica nuevas habilidades dentro de un contexto de guía y acompañamiento, estimulando además una adecuada transferencia al día a día.",
         "2": "Incluye coaching ejecutivo, diseñado para líderes e integrantes de la alta dirección y personalizado, de acuerdo a las necesidades individuales.",
@@ -180,7 +180,7 @@
         "8": "→ Desarrollo y formación en las distintas áreas: Cliente, Operaciones, Cambio e Innovación y Liderazgo."
     },
     "crossView": {
-        "title": "Vista cruzada 360° y 540°",
+        "title": "Cross View 360° y 540°",
         "0": "Cross View es una herramienta online de desarrollo. En sus dos versiones, brinda feedback sobre el desempeño identificando fortalezas y oportunidades de mejora.",
         "1": "Cross View 360°",
         "2": "La medición online más flexible y fácil de usar",
@@ -197,7 +197,7 @@
         "13": "2da vista"
     },
     "talentMapping": {
-        "title": "Mapeo de Talento",
+        "title": "Talent Mapping",
         "0": "Es una herramienta que mide e integra diferentes dimensiones de medición del talento.",
         "1": "¿Por qué elegir Talent Mapping? Porque es un proceso versátil e integrado que provee información sobre los distintos aspectos y factores que intervienen a la hora de medir y reconocer el potencial de un individuo.",
         "2": "→ A través de la integración de diferentes dimensiones y en concordancia con nivel de liderazgo, Talent Mapping es una poderosa herramienta que utiliza una plataforma digital para evaluar potencial. En combinación con ejercicios de gestión, es utilizada para evaluar performance.",

@@ -20,16 +20,11 @@
                             <span class="text-caption text-grey-darken-1">
                                 Seleccione la categoria del post
                             </span>
-                            <v-select
-                                v-model="post.category"
-                                :items="categories"
-                                item-title="name"
-                                item-value="id"
-                                label="Categoria"
-                            ></v-select>
+                            <v-select v-model="post.category" :items="categories" item-title="name" item-value="id"
+                                label="Categoria"></v-select>
                         </v-card-text>
                     </v-window-item>
-    
+
                     <v-window-item :value="2">
                         <v-card-text>
                             <v-text-field label="Titulo" v-model="post.title_es" placeholder="Titulo"></v-text-field>
@@ -39,7 +34,7 @@
                             </span>
                         </v-card-text>
                     </v-window-item>
-    
+
                     <v-window-item :value="3">
                         <v-card-text>
                             <v-text-field label="Title" v-model="post.title_en" placeholder="Title"></v-text-field>
@@ -49,17 +44,18 @@
                             </span>
                         </v-card-text>
                     </v-window-item>
-    
+
                     <v-window-item :value="4">
                         <v-card-text>
-                            <v-text-field label="Qualificação" v-model="post.title_pt" placeholder="Qualificação"></v-text-field>
+                            <v-text-field label="Qualificação" v-model="post.title_pt"
+                                placeholder="Qualificação"></v-text-field>
                             <vue-editor id="editor" v-model="post.text_pt" :editorToolbar="editorOptions"></vue-editor>
                             <span class="text-caption text-grey-darken-1">
                                 Escreva o texto do post
                             </span>
                         </v-card-text>
                     </v-window-item>
-    
+
                     <v-window-item :value="5">
                         <v-card-text>
                             <v-file-input accept="image/*" label="File input" v-model="post.file_path"></v-file-input>
@@ -74,28 +70,14 @@
             <v-divider></v-divider>
 
             <v-card-actions>
-                <v-btn
-                    v-if="step > 1"
-                    variant="text"
-                    @click="step--"
-                >
+                <v-btn v-if="step > 1" variant="text" @click="step--">
                     Back
                 </v-btn>
                 <v-spacer></v-spacer>
-                <v-btn
-                    v-if="step < 5"
-                    color="primary"
-                    variant="flat"
-                    @click="step++"
-                >
+                <v-btn v-if="step < 5" color="primary" variant="flat" @click="step++">
                     Next
                 </v-btn>
-                <v-btn
-                    v-else
-                    color="primary"
-                    variant="flat"
-                    @click="save"
-                >
+                <v-btn v-else color="primary" variant="flat" @click="save">
                     Save
                 </v-btn>
             </v-card-actions>
@@ -192,7 +174,7 @@
                 formData.append('text_pt', this.post.text_pt);
                 this.post.file_path[0] == undefined ? '' : formData.append('file_path', this.post.file_path[0]);
 
-                await axios.post(this.edit ? '/newsite/consulting-now/public/editPost' : '/newsite/consulting-now/public/posts', formData, {
+                await axios.post(this.edit ? '/editPost' : '/posts', formData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -207,7 +189,7 @@
                     id: this.id
                 };
 
-                await axios.get('/newsite/consulting-now/public/getPostById', {
+                await axios.get('/getPostById', {
                     params: data
                 })
                 .then(response => {

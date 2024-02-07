@@ -1,38 +1,41 @@
 <style scoped>
-    .dividerCustom {
-        height: 5px;
-        background-color: #F3B007;
-        border: 0px;
-    }
+.dividerCustom {
+    height: 5px;
+    background-color: #F3B007;
+    border: 0px;
+}
 
-    .h1Custom {
-        color: #4c4c4c;
-        font-size: 36px;
-        font-weight: 300;
-        line-height: 50px;
-    }
+.h1Custom {
+    color: #4c4c4c;
+    font-size: 36px;
+    font-weight: 300;
+    line-height: 50px;
+}
 
-    .twoColumns {
-        column-count: 2;
-        column-gap: 20px;
-    }
+.twoColumns {
+    column-count: 2;
+    column-gap: 20px;
+}
 </style>
 
 <template>
-    <div style="background-color: #F7F7F7; margin-top: 64px; height: 8%; display: flex; flex-direction: column; align-items: start; padding-left: 10%; justify-content: center;">
-        <h1 class="h1Custom"> {{ post['title_' + this.$i18n.locale] }} </h1>
+    <div
+        style="background-color: #F7F7F7; margin-top: 64px; height: 8%; display: flex; flex-direction: column; align-items: start; padding-left: 10%; justify-content: center;">
+        <!-- <h1 class="h1Custom"> {{ post['title_' + this.$i18n.locale] }} </h1> -->
+        <h1 class="h1Custom"> {{ post['title_en'] }} </h1>
         <hr aria-orientation="horizontal" class="dividerCustom" style="width: 20%">
     </div>
     <!-- <v-container class="justify-center align-center"> -->
-        <v-container style="height: 30%;">
-            <v-img :src="getImageUrl()"></v-img>
-        </v-container>
-        <v-container v-html="post['text_' + this.$i18n.locale]" :class="small ? '' : 'twoColumns'"></v-container>
-        <v-container style="display: flex; justify-content: center;">
-            <v-btn rounded color="#F3B007" style="color: #fafafa" @click="redirect()">
-                Volver
-            </v-btn>
-        </v-container>
+    <v-container style="height: 30%;">
+        <v-img :src="getImageUrl()"></v-img>
+    </v-container>
+    <v-container v-html="post['text_en']" :class="small ? '' : 'twoColumns'"></v-container>
+    <!-- <v-container v-html="post['text_' + this.$i18n.locale]" :class="small ? '' : 'twoColumns'"></v-container> -->
+    <v-container style="display: flex; justify-content: center;">
+        <v-btn rounded color="#F3B007" style="color: #fafafa" @click="redirect()">
+            Volver
+        </v-btn>
+    </v-container>
     <!-- </v-container> -->
 </template>
 
@@ -71,7 +74,7 @@ import axios from 'axios';
                     id: this.id
                 };
 
-                await axios.get('/newsite/consulting-now/public/getPostById', {
+                await axios.get('/getPostById', {
                     params: data
                 })
                 .then(response => {
@@ -82,14 +85,15 @@ import axios from 'axios';
             },
 
             getImageUrl() {
-                return this.post.file_path.replace('public', '/newsite/consulting-now/public/storage');
+                return this.post.file_path.replace('public', '/storage');
             },
         },
 
         async created() {
             this.id = this.$route.params.id;
             await this.getPostById();
-            this.small = window.innerWidth < 600 || this.post['text_' + this.$i18n.locale].length < 1000;
+            this.small = window.innerWidth < 600 || this.post['text_en'].length < 1000;
+            // this.small = window.innerWidth < 600 || this.post['text_' + this.$i18n.locale].length < 1000;
         },
     }
 </script>

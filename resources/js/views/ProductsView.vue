@@ -125,25 +125,27 @@
             <v-container>
                 <v-row>
                     <transition-group name="cell" tag="div" style="display: contents;">
-                        <v-col cols="12" v-for="product in selected" :key="product.src" sm="12" md="6" lg="3" style="height: fit-content;">
+                        <v-col cols="12" v-for="product in selected" :key="product.src" sm="12" md="6" lg="3"
+                            style="height: fit-content; width: fit-content;">
                             <v-hover v-slot="{ isHovering, props }">
-                                <v-card height="150"
-                                style="overflow: hidden;"
-                                v-bind="props"
-                                @click="redirect(product.link)">
-                                    <v-img
-                                        :src="product.src"
-                                        height="150"
-                                        style="overflow: hidden;"
-                                        :style="{ transform: isHovering ? 'scale(1.2)' : 'scale(1)', transition: 'all 0.2s ease-in-out' }"
-                                        :class="{ 'scale-120': isHovering }"
-                                        transition="scale-transition"
-                                    ></v-img>
-                                </v-card>
+                                <div
+                                    v-bind="props"
+                                    @click="redirect(product.link)">
+                                    <div style="cursor: pointer; overflow: hidden;">
+                                        <v-img
+                                            :src="product.src"
+                                            style="cursor: pointer;"
+                                            aspect-ratio="16/9"
+                                            :style="{ transform: isHovering ? 'scale(1.2)' : 'scale(1)', transition: 'all 0.2s ease-in-out' }"
+                                            :class="{ 'scale-120': isHovering }"
+                                            transition="scale-transition"
+                                        ></v-img>
+                                    </div>
+                                    <p class="footerCustom" @click="redirect(product.link)">
+                                        {{ $t(product.title) }}
+                                    </p>
+                                </div>
                             </v-hover>
-                            <p class="footerCustom" @click="redirect(product.link)">
-                                {{ $t(product.title) }}
-                            </p>
                         </v-col>
                     </transition-group>
                 </v-row>
@@ -185,67 +187,67 @@
             ],
             products: [
                 {
-                    src: `/images/products/productos-talent-mapping01.png`,
+                    src: `/images/products/test/productos-talent-mapping01.png`,
                     category: 1,
                     title: "Talent mapping",
                     link: '/products/talent-mapping' 
                 },
                 {
-                    src: '/images/products/tme.jpg',
+                    src: '/images/products/test/tme.jpg',
                     category: 1,
                     title: "Talent Management Exercise",
                     link: '/products/tme' 
                 },
                 {
-                    src: '/images/products/productos-cross-view.jpg',
+                    src: '/images/products/test/productos-cross-view.jpg',
                     category: 1,
                     title: "Cross view 360° and 540°",
                     link: '/products/cross-view'
                 },
                 {
-                    src: '/images/products/productos-opto-gris.jpg',
+                    src: '/images/products/test/productos-opto-gris.jpg',
                     category: 1,
                     title: "Data-driven Analytics",
                     link: '/products/data-driven' 
                 },
                 {
-                    src: '/images/products/productos-experience-innovation.jpg',
+                    src: '/images/products/test/productos-experience-innovation.jpg',
                     category: 2,
                     title: "Innovation Experience",
                     link: '/products/innovation-experience' 
                 },
                 {
-                    src: '/images/products/productos-experience-change-001-big.jpg',
+                    src: '/images/products/test/productos-experience-change-001-big.jpg',
                     category: 2,
                     title: "Exchange Experience",
                     link: '/products/experience-of-change' 
                 },
                 {
-                    src: '/images/products/conv_int.png',
+                    src: '/images/products/test/conv_int.png',
                     category: 2,
                     title: "Conversational Intelligence (C-IQ)",
                     link: '/products/conversational-intelligence' 
                 },
                 {
-                    src: '/images/products/productos-ADN.jpg',
+                    src: '/images/products/test/productos-ADN.jpg',
                     category: 2,
                     title: "Organizational Culture and the DNA of Leadership",
                     link: '/products/dna-of-leadership' 
                 },
                 {
-                    src: '/images/products/productos-c-iq.jpg',
+                    src: '/images/products/test/productos-c-iq.jpg',
                     category: 4,
                     title: "Human centered design",
                     link: '/products/human-centered-design' 
                 },
                 {
-                    src: '/images/products/productos-coaching.png',
+                    src: '/images/products/test/productos-coaching.png',
                     category: 3,
                     title: "coaching",
                     link: '/products/coaching' 
                 },
                 {
-                    src: '/images/products/gestion_conjunta.png',
+                    src: '/images/products/test/gestion_conjunta.png',
                     category: 4,
                     title: "Joint Management",
                     link: '/products/joint-management' 

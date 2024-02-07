@@ -19,12 +19,8 @@
   }
 
   .parallax-section {
-    /* height: 100vh; */
-    overflow-x: hidden;
-    overflow-y: auto;
-    perspective: 1px;
     background-size: cover;
-    background-attachment: fixed;
+    background-attachment: fixed; 
   }
 
   .color-on-hover {
@@ -50,9 +46,10 @@
 <template>
   <v-app style="padding-top: 64px;">
     <div style="width: 100vw;"
-      :style="{ backgroundImage: `url('/images/us/photoPageUs.jpg')`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center' }">
+      :style="{ backgroundImage: `url('/images/us/photoPageUs4.jpg')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }">
       <transition name="slide-right" appear>
         <v-container style="display: flex; align-items: center; justify-content: space-between;">
           <h1 class="h1Custom" style="padding-bottom: 7%;">
@@ -62,18 +59,24 @@
         </v-container>
       </transition>
     </div>
-    <v-container style="background-color: #FFFFFF; display: flex; width: 100vw;" class="justify-center align-center fullscreen">
+
+    <v-container style="background-color: #FFFFFF; display: flex; min-height: 90vh;"
+      class="justify-center align-center">
       <v-row>
-        <v-col cols="12" xl="4" lg="4" sm="12" v-intersect="onIntersect">
+        <v-col cols="12" xl="6" lg="4" sm="12" v-intersect="onIntersect">
           <transition name="slide-up">
-            <v-container v-show="showANewApproach">
-              <v-img style="border-radius: 5px; margin-top: 30px;" src="/images/us/photoPageUs3.jpg"></v-img>
+            <v-container v-show="showANewApproach" style="display: flex; align-items: center; justify-content: center;">
+              <v-img
+                max-width="800px"
+                style="border-radius: 3%; margin-top: 30px;"
+                src="/images/us/photoPageUs3.jpg">
+              </v-img>
             </v-container>
           </transition>
         </v-col>
-        <v-col cols="12" xl="8" lg="8" sm="12">
+        <v-col cols="12" xl="6" lg="8" sm="12" style="display: flex; align-items: center;">
         <transition name="slide-down">
-          <v-container v-show="showANewApproach">
+          <v-container v-show="showANewApproach" style="max-width: 1000px;">
             <h2 class="titleCustom" style="color: #4c4c4c;">
               {{ $t('A new approach for a new world') }}
             </h2>
@@ -96,41 +99,66 @@
         </v-col>
       </v-row>
     </v-container>
-    <section class="parallax-section fullscreen" :style="{ backgroundImage: `url(${'/images/us/photoPageUs2.jpg'})` }" style="display: flex; align-items: center;">
-      <v-container v-intersect="onIntersectAlliances">
-        <h2 class="titleCustom" style="color: #F3B007;">
-          {{ $t("/alliances") }}
-        </h2>
-        <p style="color: #fafafa;">
-          {{ $t("alliances p1") }}
-        </p>
-        <v-row>
-            <v-col cols="12" v-for="item in items" :key="item.src" xl="3" lg="3" sm="12">
-              <transition name="slide-down">
-                <v-container v-show="item.show" style="border: 4px solid #F3B007; height: 240px; display: flex; justify-content: center; align-items: center;">
-                    <v-hover v-slot="{ hover }">
-                      <v-card style="width: 170px; height: 100px; display: flex; justify-content: center; align-items: center;" :style="{ transform: hover ? 'scale(1.2)' : 'scale(1)', transition: 'all 0.2s ease-in-out' }">
-                        <v-img
-                          style="cursor: pointer;"
-                          max-width="100%"
-                          max-height="100%"
-                          :src="item.src"
-                          @click="redirect(item.link)"
-                        >
-                        </v-img>
-                      </v-card>
-                    </v-hover>
-                </v-container>
-              </transition>
-            </v-col>
-        </v-row>
+
+    <section class="parallax-section" :style="{
+        backgroundImage: getBackgroundImage,
+        height: windowWidth < 600 ? '-webkit-fill-available' : '100%',
+        paddingTop: windowWidth > 600 ? '10%' : '0px',
+        paddingBottom: windowWidth > 600 ? '10%' : '0px'
+      }"
+      style="display: flex; align-items: center;">
+      <v-container style="max-width: 1200px;">
+        <v-container v-intersect="onIntersectAlliances">
+          <h2 class="titleCustom" style="color: #F3B007;">
+            {{ $t("/alliances") }}
+          </h2>
+          <p style="color: #fafafa;">
+            {{ $t("alliances p1") }}
+          </p>
+          <br>
+          <v-row style="margin: 0px; gap: 1rem 6rem; justify-content: center;">
+              <v-col cols="12" v-for="item in items" :key="item.src" xl="3" lg="3" sm="12"
+                style="padding: 0px; width: 13rem; height: 10rem; max-width: 13rem;">
+                <transition name="slide-down">
+                  <v-container v-show="item.show" style="
+                    border: 0.3rem solid #F3B007;
+                    height: 10rem;
+                    width: 13rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;">
+                      <v-hover v-slot="{ hover }">
+                        <v-card style="
+                          width: 170px;
+                          height: 100px;
+                          display: flex;
+                          justify-content: center;
+                          align-items: center;"
+                          :style="{ transform: hover ? 'scale(1.2)' : 'scale(1)', transition: 'all 0.2s ease-in-out' }">
+                          <v-img
+                            style="cursor: pointer;"
+                            max-width="100%"
+                            max-height="100%"
+                            :src="item.src"
+                            @click="redirect(item.link)"
+                          >
+                          </v-img>
+                        </v-card>
+                      </v-hover>
+                  </v-container>
+                </transition>
+              </v-col>
+          </v-row>
+        </v-container>
       </v-container>
     </section>
-    <v-container style="background-color: #FFFFFF;display: flex; align-items: center;" v-intersect="onIntersectInternationalExperience" class="fullscreen">
+
+    <v-container style="background-color: #FFFFFF; display: flex; align-items: center; min-height: 100vh;"
+      v-intersect="onIntersectInternationalExperience">
       <v-row>
-        <v-col cols="12" xl="8" lg="8" sm="12">
+        <v-col cols="12" xl="6" lg="8" sm="12" style="display: flex; align-items: center;">
         <transition name="slide-right">
-          <v-container v-show="showInternationalExperience">
+          <v-container v-show="showInternationalExperience" style="max-width: 1000px;">
             <h2 class="titleCustom" style="color: #4c4c4c;">
               {{ $t("International experience") }}
             </h2>
@@ -145,14 +173,26 @@
           </v-container>
         </transition>
         </v-col>
-        <v-col cols="12" xl="4" lg="4" sm="12">
+        <v-col cols="12" xl="6" lg="4" sm="12">
           <transition name="slide-left">
-            <v-img style="border-radius: 2%; margin-top: 30px;" src="/images/us/iStock-831031024.jpg" v-show="showInternationalExperience"></v-img>
+            <v-container v-show="showInternationalExperience" style="display: flex; align-items: center; justify-content: center;">
+              <v-img
+                max-width="800px"
+                style="border-radius: 3%; margin-top: 30px;"
+                src="/images/us/iStock-831031024.jpg">
+              </v-img>
+            </v-container>
           </transition>
         </v-col>
       </v-row>
     </v-container>
-    <section class="parallax-section fullscreen" :style="{ backgroundImage: `url('/images/us/pyd_index.jpg')` }" style="display: flex; align-items: center;">
+
+    <section class="parallax-section" :style="{
+        backgroundImage: `url('/images/us/pyd_index.jpg')`,
+        height: windowWidth < 600 ? '-webkit-fill-available' : '100%',
+        paddingTop: windowWidth > 600 ? '5%' : '0px',
+        paddingBottom: windowWidth > 600 ? '5%' : '0px'
+      }" style="display: flex; align-items: center;">
       <v-container v-intersect="onIntersectProduct">
         <h2 class="titleCustom" style="color: #4c4c4c;">
           {{ $t("/products") }}
@@ -165,10 +205,10 @@
               <v-container v-show="product.show" class="align-center text-center" style="border: 5px solid #F3B007; height: 100%; display: table;"
               :style="{ backgroundColor: index % 2 === 0 ? '#F3B007' : '' }">
                 <v-container style="cursor: pointer; display: table-cell; vertical-align: middle;" @click="redirect(product.link)"
-                :style="{ color: index % 2 === 0 ? '#fafafa' : '#696969' }">
-                  <h4>
+                :style="{ color: index % 2 === 0 ? '#fafafa' : '#313131' }">
+                  <h1 style="margin-bottom: 5%;">
                     {{ product.title}}
-                  </h4>
+                  </h1>
                   <p>
                     {{ $t(product.paragraph) }}
                   </p>
@@ -179,12 +219,13 @@
         </v-row>
       </v-container>
     </section>
+
     <v-container style="background-color: #FFFFFF;">
       <h2 class="titleCustom" style="color: #4c4c4c;">
         {{ $t("Who trusted us") }}
       </h2>
       <hr aria-orientation="horizontal" class="dividerCustom" style="width: 50%;">
-      <v-slide-group ref="slideGroup" show-arrows :value="slideIndex" style="margin-top: 30px;">
+      <v-slide-group ref="slideGroup" show-arrows style="margin-top: 30px;" v-model="slideIndex">
         <v-slide-group-item v-for="n in 56" :key="n">
           <v-img class="color-on-hover d-flex" contain width="100" style="margin-left: 20px;" :src="`/images/partners/${n}.jpg`"></v-img>
         </v-slide-group-item>
@@ -206,7 +247,7 @@
         showCiq: false,
         showInnova: false,
         slideIndex: 0,
-        slideTimer: 0,
+        slideTimer: null,
         reset: true,
         items: [
           {
@@ -240,33 +281,36 @@
           {
             link: '/products/conversational-intelligence',
             show: false,
-            title: 'TME',
+            title: 'C-IQ',
             paragraph: 'c-iq'
           },
           {
             link: '/products/innovation-experience',
             show: false,
-            title: 'TME',
+            title: 'Experence Innovation',
             paragraph: 'expeInnova'
           },
           {
             link: '/products/experience-of-change',
             show: false,
-            title: 'TME',
+            title: 'Experence Change',
             paragraph: 'expeChange'
           }
         ]
       }
     },
+
     mounted() {
-      this.startSlideTimer();
-    },
-    methods: {
-      startSlideTimer() {
         this.slideTimer = setInterval(() => {
-          this.slideIndex += 6;
-        }, 30000)
-      },
+          if (this.slideIndex === 55) {
+            this.slideIndex = 0;
+          } else {
+            this.slideIndex++;
+          }
+        }, 1500)
+    },
+
+    methods: {
       redirect(link: string) {
         this.$router.push(link);
       },
@@ -308,8 +352,19 @@
         }
       },
     },
+
     beforeDestroy() {
       clearInterval(this.slideTimer)
     },
+
+    computed: {
+      getBackgroundImage() {
+        return window.innerWidth < 600 ? `url(${'/images/us/photoPageUs5.jpg'})` : `url(${'/images/us/photoPageUs2.jpg'})`;
+      },
+
+      windowWidth() {
+        return window.innerWidth;
+      }
+    }
   });
 </script>

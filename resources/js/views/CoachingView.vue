@@ -64,7 +64,6 @@
                                 <v-container style="border: 4px solid #F3B007; padding: 14%;">
                                     <h4 class="h4Custom" style="text-align: center;">
                                         {{ $t('coachingView.title') }}
-                                        Coaching
                                     </h4>
                                     <p class="pCustom" style="text-align: center; padding-top: 16px; color: #fafafa;">
                                         {{ $t('coachingView.8') }}

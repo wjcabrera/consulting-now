@@ -16,6 +16,7 @@
 <template>
     <v-app style="background-color: #F7F7F7;">
         <NavBarComponent :session="true" :user="user"/>
+
         <v-container style="padding-top: 80px;">
             <v-row>
                 <v-col cols="12" lg="6" md="6" sm="12">
@@ -175,7 +176,7 @@
 
             deletePost(): void {
                 let data = {id: this.postId}
-                axios.post('/newsite/consulting-now/public/deletePost', data)
+                axios.post('/deletePost', data)
                 .then((response) => {
                     this.getAllPosts();
                     this.showDelete = false;
@@ -203,7 +204,7 @@
             },
 
             async getAllPosts(): Promise<void> {
-                axios.get('/newsite/consulting-now/public/getPosts')
+                axios.get('/getPosts')
                 .then((response) => {
                     this.items = response.data.post;
                     this.selected = this.items;
@@ -214,7 +215,7 @@
             },
 
             async getCurrentUser(): Promise<void> {
-                await axios.get('/newsite/consulting-now/public/getCurrentUser')
+                await axios.get('/getCurrentUser')
                 .then((response) => {
                     this.user = response.data.user;
                 })
